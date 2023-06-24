@@ -1,0 +1,13 @@
+.division {
+    display: inline-block;
+    padding: 10px;
+    background-color: #e0e0e0;
+    color: #333;
+    border-radius: 4px;
+    transition: transform 0.3s;
+  }
+  
+  .division:hover {
+    transform: scale(1.1);
+  }
+  
