@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // MongoDB connection URL
 const baseURI = 'mongodb://127.0.0.1:27017/'
-const database = "testdatabase"
+const database = "lakshya"
 
 const mongoURI = baseURI+database;
 
