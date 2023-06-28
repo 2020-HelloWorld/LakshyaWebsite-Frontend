@@ -1,10 +1,12 @@
 const services = require('../services');
+const utils = require('../utils')
 
 const loginController = async (req,res) => {
     const { username, password } = req.body;
-    if (await services.loginService(username, password)) {
+    if (await services.loginService(username, utils.hashPassword(password))) {
       req.session.user = {
-        username: username
+        username: username,
+        group: await utils.getUserGroup(username)
       };
       res.status(200).json({ message: 'SUCCESS' });
     } else {
