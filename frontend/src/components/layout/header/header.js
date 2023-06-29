@@ -1,14 +1,16 @@
 import React from 'react';
 import './header.css';
 
+import { BrowserRouter as Link } from 'react-router-dom';
+
 const Header = () => {
   return (
     <header className="header">
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/profile">Profile</Link></li>
+          <li><Link to="/logout">Logout</Link></li>
         </ul>
       </nav>
     </header>
