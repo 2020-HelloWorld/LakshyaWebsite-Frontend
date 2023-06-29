@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
+
 
 import {Header,Footer} from './components/layout';
 
 
 
 const Home = () => {
+  console.log("Home")
   return <h2>Home Page</h2>;
 };
 
@@ -21,16 +23,13 @@ const Logout = () => {
 function App() {
   return (
     <div className="App">
-      <Router>
         <Header/>
         
-        <Routes>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-
-      </Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/logout" component={Logout} />
+        </Switch>
       
       <Footer/>
     </div>
