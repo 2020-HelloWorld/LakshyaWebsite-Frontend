@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 
 import {Header,Footer} from './components/layout';
-
+import {ReloadOnBackButton} from "./ReloadOnBackButton";
 
 
 const Home = () => {
@@ -30,7 +30,8 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/logout" component={Logout} />
         </Switch>
-      
+
+        <ReloadOnBackButton />
       <Footer/>
     </div>
   );
