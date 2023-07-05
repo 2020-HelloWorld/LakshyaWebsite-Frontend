@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 
 import {Header,Footer} from './components/layout';
-import {ReloadOnBackButton} from "./ReloadOnBackButton";
+import  ReloadOnBackButton from "./ReloadOnBackButton";
 
 
 const Home = () => {
