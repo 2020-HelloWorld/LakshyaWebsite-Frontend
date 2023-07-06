@@ -1,0 +1,42 @@
+.about-us {
+    background-color: #f7f7f7;
+    padding: 2rem;
+  }
+  
+  .about-us-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-us-image {
+    flex: 0 0 50%;
+    padding-right: 2rem;
+  }
+  
+  .about-us-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .about-us-content {
+    flex: 1;
+  }
+  
+  .about-us-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-us-content p {
+    font-size: 1.2rem;
+  }
+  .about-us {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .about-us.fade-in {
+    opacity: 1;
+  }
+    
