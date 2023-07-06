@@ -1,9 +1,9 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-
-
+import ReloadOnBackButton from './ReloadOnBackButton';
+import { AboutUs,Companies,Hero ,mentorHome,Testimonial,Mentor} from './components/pages';
 import {Header,Footer} from './components/layout';
-import  ReloadOnBackButton from "./ReloadOnBackButton";
+
 
 
 const Home = () => {
@@ -29,9 +29,12 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/profile" component={Profile} />
           <Route path="/logout" component={Logout} />
+          <Route path="/mentor" component={mentorHome} />
         </Switch>
-
-        <ReloadOnBackButton />
+<Companies/>
+<Mentor/>
+       <ReloadOnBackButton/>
+       <Testimonial/>
       <Footer/>
     </div>
   );
