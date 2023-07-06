@@ -1,0 +1,36 @@
+.front-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px; /* Adjust the padding as needed */
+}
+
+.text-container {
+  flex: 1;
+  margin-right: 40px; /* Adjust the margin as needed */
+}
+
+.text-container h1 {
+  font-size: 60px; /* Adjust the font size as needed */
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.text-container p {
+  font-size: 40px; /* Adjust the font size as needed */
+}
+
+.imagefront-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+
+
+

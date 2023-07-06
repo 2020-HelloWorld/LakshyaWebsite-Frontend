@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+  }
+  
+  .box {
+    flex: 1;
+    padding: 20px;
+    margin: 1px;
+    color: white;
+    text-align: center;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow */
+    transition: box-shadow 0.3s ease; /* Transition for smooth box shadow change */
+  }
+  
+  .box:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4); /* Increased box shadow on hover */
+  }
+  
+  .box:nth-child(1) {
+    background-color: #FFC0CB; /* Light Pink */
+  }
+  
+  .box:nth-child(2) {
+    background-color: #FFA7B5; /* Medium Pink */
+  }
+  
+  .box:nth-child(3) {
+    background-color: #FF8DA0; /* Dark Pink */
+  }
+  
+  .box:nth-child(4) {
+    background-color: #FF749B; /* Deep Pink */
+  }
+  
