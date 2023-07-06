@@ -1,16 +1,13 @@
 import React from 'react';
-import './Candidates.css';
+import NavBar from '../Navbar/NavBar';
+import './Candidates.css'
 
 const Candidates = () => {
   return (
     <div className="container">
-      {/* <nav className="navbar">
-        <div className="company-name">Lakshya</div>
-        <div className="login-signup-button">
-          <button>Login / Signup</button>
-        </div>
-      </nav> */}
 
+      <NavBar />
+{/* 
     <nav className="navbar">
       <div className="navbar-left">
         <img src={process.env.PUBLIC_URL + '/logo.jpeg'}  alt="Company Logo" className="logo" />
@@ -21,7 +18,7 @@ const Candidates = () => {
         <button className="navbar-button">Get Started</button>
         <button className="login-signup-button">Log In / Sign Up</button>
       </div>
-    </nav>
+    </nav> */}
 
       <div className="hero">
         <h1>Welcome to Lakshya</h1>

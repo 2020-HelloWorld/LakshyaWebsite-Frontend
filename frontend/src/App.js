@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Candidates from './Candidates';
+import Candidates from './components/pages/Candidates/Candidates';
 
 
 import {Header,Footer} from './components/layout';
