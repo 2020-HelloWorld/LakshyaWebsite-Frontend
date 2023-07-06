@@ -5,7 +5,6 @@ import ReloadOnBackButton from './ReloadOnBackButton';
 import { AboutUs, Companies, Hero, FlexButton } from './components/pages';
 import { Eval, Front, RecruitComp } from './components/pages';
 
-<<<<<<< HEAD
 const LandingPage = () => {
   return (
     <div className="landing-page">
@@ -17,16 +16,6 @@ const LandingPage = () => {
       <Footer />
     </div>
   );
-=======
-
-import {Header,Footer} from './components/layout';
-import  ReloadOnBackButton from "./ReloadOnBackButton";
-
-
-const Home = () => {
-  console.log("Home")
-  return <h2>Home Page</h2>;
->>>>>>> 2811eb34e710603e492a487ad0e7b2fae86e72d8
 };
 
 const Home = () => {
