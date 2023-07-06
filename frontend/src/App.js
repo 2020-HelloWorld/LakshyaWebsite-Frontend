@@ -1,23 +1,25 @@
 import React from 'react';
-
 import {Switch, Route} from 'react-router-dom';
-import Candidates from './components/pages/Candidates/Candidates';
-import { MentorHome, Testimonial, Mentor, Companies } from './components/pages';
+import Candidates from './components/pages/Home/candidateHome/candidateHome';
+
 
 import {Header,Footer} from './components/layout';
 import  ReloadOnBackButton from "./ReloadOnBackButton";
 
 
-const MentorPage = () => {
-  return (
-    <>
-      <MentorHome />
-      <Companies />
-      <Mentor />
-      <Testimonial />
-    </>
-  );
-};
+// const Home = () => {
+//   console.log("Home")
+//   return <h2>Home Page</h2>;
+// };
+
+
+// const Profile = () => {
+//   return <h2>Profile Page</h2>;
+// };
+
+// const Logout = () => {
+//   return <h2>Logout Page</h2>;
+// };
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/logout" component={Logout} />
         </Switch> */}
+
         <ReloadOnBackButton />
       {/* <Footer/> */}
     </div>
