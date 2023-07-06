@@ -14,7 +14,7 @@ const Footer = () => {
           <p>ITPL Road</p>
           <p>Whitefield, Bangalore</p>
           <p>pesuniversity@gmail.com</p>
-          <h4>+9`986756453</h4>
+          <h4>+91-9867564531</h4>
         </div>
         <div className="col">
           <h3>Links<div className="underline"><span></span></div></h3>
