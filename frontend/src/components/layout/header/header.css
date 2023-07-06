@@ -1,7 +1,3 @@
-
-/* :root{
-    --black:red;
-} in case we want to change colour*/
 .h-wrapper{
   background: var(--black);
   color:white;
@@ -27,3 +23,4 @@
       }
   
 };
+

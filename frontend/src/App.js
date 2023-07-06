@@ -1,11 +1,11 @@
 import React from 'react';
-
 import {Switch, Route} from 'react-router-dom';
+import {Header,Footer} from './components/layout';
+import  ReloadOnBackButton from "./ReloadOnBackButton";
+
 import Candidates from './components/pages/Candidates/Candidates';
 import { MentorHome, Testimonial, Mentor, Companies } from './components/pages';
 import { Eval, Front, RecruitComp } from './components/pages';
-import {Header,Footer} from './components/layout';
-import  ReloadOnBackButton from "./ReloadOnBackButton";
 
 
 const LandingPage = () => {
@@ -33,6 +33,7 @@ const MentorPage = () => {
   );
 };
 
+
 const Company = () => {
   return( 
     <div className='companyHome'>
@@ -55,6 +56,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/logout" component={Logout} />
         </Switch> */}
+
         <ReloadOnBackButton />
       {/* <Footer/> */}
     </div>
