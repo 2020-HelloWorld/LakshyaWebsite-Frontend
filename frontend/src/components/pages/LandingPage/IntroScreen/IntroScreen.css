@@ -1,26 +1,26 @@
 
-.hero-wrapper{
+.intoduction-wrapper{
   background-color: #1a2742;
 }
-.hero-container {
+.intoduction-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 100px;
   }
   
-  .hero-left {
+  .intoduction-left {
     width: 50%;
   }
   
-  .hero-right {
+  .intoduction-right {
     width: 50%;
     display: flex;
     justify-content: flex-end;
   }
   
-  /* Style the hero title and description */
-  .hero-title h1 {
+  /* Style the intoduction title and description */
+  .intoduction-title h1 {
     color: whitesmoke;
     font-size: 36px;
     font-weight: bold;
@@ -28,7 +28,7 @@
     text-align: left;
   }
   
-  .hero-des span {
+  .intoduction-des span {
     font-size: 18px;
     line-height: 1.5;
     color: #666;

@@ -1,18 +1,20 @@
 import React from 'react';
-import './styles.css'
-import { Header ,Footer} from '../../layout';
-import Hero from './hero/hero';
-import FlexButton from './flexbutton/flexbutton';
-import Companies from './companies/companies';
+import './LandingPage.css'
+
+import { Navbar ,Footer} from '../../layout';
+
+import IntoScreen from "./IntroScreen/IntroScreen";
 import AboutUs from './aboutus/aboutus';
-import NavBar from '../../layout/Navbar/NavBar';
-function landingPage() {
+import Companies from './companies/companies';
+import UserType from "./UserType/UserType";
+
+function LandingPage() {
   return (
     <div>
       <div className="landing-page">
-      <NavBar />
-      <Hero />
-      <FlexButton />
+      <Navbar />
+      <IntoScreen />
+      <UserType />
       <Companies />
       <AboutUs />
       <Footer />
@@ -21,4 +23,4 @@ function landingPage() {
   )
 }
 
-export default landingPage
+export default LandingPage

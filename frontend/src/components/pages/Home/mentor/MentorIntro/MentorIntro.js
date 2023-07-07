@@ -1,8 +1,8 @@
 import React from 'react';
-import './mentorhome.css';
+import './MentorIntro.css';
 import mentorImage from './img/mentor.jpg';
 
-const MentorHome = () => {
+const MentorIntro = () => {
   return (
     <div className="mentor1-container">
       <div className="image-container">
@@ -22,4 +22,4 @@ const MentorHome = () => {
   );
 }
 
-export default MentorHome;
+export default MentorIntro;

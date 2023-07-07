@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Candidates.css'; // Add your own CSS file for styling
-import NavBar from '../../../layout/Navbar/NavBar';
+import { Navbar } from '../../../layout';
 
 const Candidates = () => {
   // Dummy data for mentors, job offers, events, and testimonials
@@ -72,7 +72,7 @@ const Candidates = () => {
   ];
 
   return (
-    <><NavBar /><div className="homepage-container">
+    <><Navbar /><div className="homepage-container">
       <div className="hero">
         <div className="hero-background"></div>
         <div className="hero-content">

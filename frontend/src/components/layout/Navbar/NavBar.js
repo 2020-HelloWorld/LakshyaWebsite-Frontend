@@ -5,7 +5,6 @@ const NavBar = () => {
     return (
         <nav className="navbar">
       <div className="navbar-left">
-        {/* <img src={process.env.PUBLIC_URL + '/logo.jpeg'}  alt="Company Logo" className="logo" /> */}
         <div className="company-name">Lakshya</div>
       </div>
       <div className="navbar-right">
