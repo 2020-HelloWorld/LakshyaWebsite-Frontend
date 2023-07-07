@@ -1,5 +1,5 @@
 import React from 'react';
-import './front.css'; // Import the CSS file for styling
+import './CompanyIntro.css'; // Import the CSS file for styling
 
 const Front = () => {
   return (
