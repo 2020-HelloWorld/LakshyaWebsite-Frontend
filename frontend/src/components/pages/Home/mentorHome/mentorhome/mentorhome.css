@@ -4,8 +4,9 @@
 
 .mentor1-container {
   display: flex;
-  background-color: #9cbbe5;
+  
   align-items: center;
+  margin: 50px;
 }
 
 .image-container {
@@ -34,8 +35,8 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.description {
-  color: #dc5491;
+.mentor-description {
+  color: #0b0a0a;
   line-height: 1.5;
   
   font-family: 'Roboto', sans-serif;
@@ -54,7 +55,7 @@
 }
 
 .apply-button {
-  background-color: #1352a5;
+  background-color: #1a2742;
   color: #fff;
   padding: 14px 24px;
   border: none;

@@ -1,274 +1,187 @@
-/* Candidates.css */
-/* Add your styles for the Candidates page here */
+/* HomePage.css */
 
-/* Global styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f6f6f6;
-  }
-  
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .hero {
-    position: relative;
-    height: 700px;
-    background-color: #f9e8e6;
-    margin-bottom: 40px;
-  }
-  
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('./background-image.jpg');
-    background-size: cover;
-    background-position: top;
-    opacity: 0.5;
-  }
-  
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: 200px;
-    text-align: center;
-    color: #ff908d;
-  }
-  
-  .hero h1 {
-    margin-top: 0;
-    font-size: 36px;
-  }
-  
-  .hero p {
-    margin-bottom: 20px;
-  }
-  
-  .hero button {
-    padding: 10px 20px;
-    background-color: #f48d89;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .hero button:hover {
-    background-color: #e7736f;
-  }
-  /* Mentor details styles */
-  
-.mentor-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
+/* General Styling */
+.homepage-container {
+  color: white;
 }
 
+.section-title {
+  color: #ffffff;
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 300px;
+  background-color: #1a2742;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://example.com/images/hero-background.jpg');
+  background-size: cover;
+  opacity: 0.3;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ffffff;
+  color: #1a2742;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hero button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mentor Cards */
 .mentor-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #1a2742;
+  color: white;
   padding: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.mentor-card:hover {
-  transform: translateY(-5px);
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .mentor-card h3 {
-  margin-top: 0;
-  color: #f48d89;
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
 .mentor-card p {
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #666;
-  line-height: 1.4;
+  margin-bottom: 5px;
 }
 
-.register-button {
-  padding: 10px 20px;
-  background-color: #f48d89;
-  color: #fff;
+.mentor-card .register-button {
+  background-color: #ffffff;
+  color: #1a2742;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px 16px;
   font-size: 16px;
+  cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
-.register-button:hover {
-  background-color: #e7736f;
+.mentor-card .register-button:hover {
+  background-color: #f1f1f1;
 }
-  
-  /* Internship and job offers styles */
 
-  .internship-job-offers {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  
-  .offer-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .offer-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .offer-card h4 {
-    margin-top: 0;
-    color: #f48d89;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .offer-card p {
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.4;
-  }
-  
-  .register-button {
-    padding: 10px 20px;
-    background-color: #f48d89;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .register-button:hover {
-    background-color: #e7736f;
-  }  
+/* Offer Cards */
+.offer-card {
+  background-color: #1a2742;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
 
-  .events {
-    display: grid;
-    margin-bottom: 40px;
-  }
-  
-  .section-title {
-    font-size: 30px;
-    font-style: italic;
-    display: flexbox;
-    padding: 18px;
-    background-color: #f9e8e6;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #e7736f;
-  }
-  
-  .event-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease-in-out;
-    padding: 20px;
-  }
-  
-  .event-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .event-card h4 {
-    margin-top: 0;
-    color: #f48d89;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .event-card p {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .event-card p.description {
-    font-size: 16px;
-    margin-bottom: 15px;
-    line-height: 1.4;
-  }
-  
-  .register-button {
-    padding: 10px 20px;
-    background-color: #f48d89;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .register-button:hover {
-    background-color: #e7736f;
-  }
-  
-  .testimonials {
-    margin-bottom: 40px;
-    text-align: center;
-  }
+.offer-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
 
-  .testimonial-head{
-    display: flexbox;
-    padding: 18px;
-    color: #e7736f;
-    font-style: italic;
-    font-size: 30px;
-    border-radius: 4px;
-    text-align: center;
-    background-color: #fcdedd;
-  }
-  
-  .testimonial-card {
-    background-color: #fff;
-    border-radius: 4px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .testimonial-card p {
-    margin: 0;
-    color: #f48d89;
-  }
-  
-  .testimonial-author {
-    color: #e7736f;
-    font-style: italic;
-  }
-  /* Footer styles */
-  .footer {
-    background-color: #f9c4c2;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .footer p {
-    margin: 0;
-    color: #f48d89;
-  }
-  
+.offer-card p {
+  margin-bottom: 5px;
+}
+
+.offer-card .register-button {
+  background-color: #ffffff;
+  color: #1a2742;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.offer-card .register-button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Event Cards */
+.event-card {
+  background-color: #1a2742;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.event-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  margin-bottom: 5px;
+}
+
+.event-card .register-button {
+  background-color: #ffffff;
+  color: #1a2742;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.event-card .register-button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  background-color: #1a2742;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.testimonial-card p {
+  margin-bottom: 10px;
+}
+
+.testimonial-card .testimonial-author {
+  font-style: italic;
+}
+
+/* Footer */
+.footer {
+  background-color: #1a2742;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}

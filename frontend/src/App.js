@@ -1,64 +1,25 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {Header,Footer} from './components/layout';
+
 import  ReloadOnBackButton from "./ReloadOnBackButton";
 
-import Candidates from './components/pages/Candidates/Candidates';
-import { MentorHome, Testimonial, Mentor, Companies } from './components/pages';
-import { Eval, Front, RecruitComp } from './components/pages';
+import Candidates from './components/pages/Home/candidateHome/candidateHome';
 
+import landingPage from './components/pages/LandingPage/landingPage';
+import mentorHome from './components/pages/Home/mentorHome/mentorHome';
+import partnerHome from './components/pages/Home/partnerHome/partnerHome';
 
-const LandingPage = () => {
-  return (
-    <div className="landing-page">
-      <Header />
-      <Hero />
-      <FlexButton />
-      <Companies />
-      <AboutUs />
-      <Footer />
-    </div>
-  );
-};
-
-
-const MentorPage = () => {
-  return (
-    <>
-      <MentorHome />
-      <Companies />
-      <Mentor />
-      <Testimonial />
-    </>
-  );
-};
-
-
-const Company = () => {
-  return( 
-    <div className='companyHome'>
-      <Header/>
-      <Front/>
-      <RecruitComp/>
-      <Eval/>
-      <Footer/>
-    </div>
-  );
-};
 
 function App() {
   return (
     <div className="App">
-        {/* <Header/> */}
-        <Candidates />
-        {/* <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/logout" component={Logout} />
-        </Switch> */}
-
+        <Switch>
+          <Route exact path='/' component={landingPage}/>
+          <Route path='/Candidates' component={Candidates}/>
+          <Route path='/mentorHome' component={mentorHome}/>
+          <Route path='/partnerHome' component={partnerHome}/>
+        </Switch>
         <ReloadOnBackButton />
-      {/* <Footer/> */}
     </div>
   );
 }

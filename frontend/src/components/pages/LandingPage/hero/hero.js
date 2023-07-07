@@ -5,11 +5,13 @@ import { FaSearch } from 'react-icons/fa';
 const Hero = () => {
   return (
     <section className="hero-wrapper">
-      <div className="paddings innerWidth flexCenter hero-container">
+      <div className="paddings  margin hero-container">
         {/* left side */}
         <div className="flexColStart hero-left">
           <div className="hero-title">
-            <h1>Empowering Women,<br></br>Shaping Careers,<br></br>Building Future</h1>
+            <h1>Empowering Women,</h1>    
+            <h1>Shaping Careers,</h1> 
+            <h1>Building Future</h1>
           </div>
           <div className="flexColStart hero-des">
             <span>Unlocking Potential, Inspiring Careers: Empowering Women<br />  to Thrive in the Workforce and Beyond</span>
@@ -24,10 +26,10 @@ const Hero = () => {
         </div>
 
         {/* right side */}
-        <div className="flexCenter hero-right">
-          <div className="image-container">
+        <div className=" hero-right">
+           <div className="image-container"> 
             <img src="./hero-image.png" alt="" />
-          </div>
+          </div> 
         </div>
       </div>
     </section>

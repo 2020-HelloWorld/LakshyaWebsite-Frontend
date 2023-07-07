@@ -7,7 +7,7 @@ const Front = () => {
       <div className="text-container">
         <h1>Cultivate Success: Discover Your<br></br> Perfect Workforce with Us</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <div className="Button"><button>Start Hiring</button></div>
+        <div ><button className="button-partner">Start Hiring</button></div>
       </div>
       <div className="imagefront-container">
         <img src="./company1.png" alt="Image 1" className="overlay-image" />
