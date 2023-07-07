@@ -25,9 +25,7 @@ const Testimonial = () => {
 
   return (
     <div className='testimonial-background'>
-       
-    <div className="testimonial-container">
-    
+      <div className="testimonial-container">
       {testimonials.map(testimonial => (
         <div className="testimonial-panel" key={testimonial.id}>
           <img className="testimonial-image" src={testimonial.image} alt={testimonial.name} />

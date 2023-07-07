@@ -1,6 +1,4 @@
-.testimonial-background {
-    background-color: #e7f3fe; /* Light blue color */
-  }
+
 .testimonial-container {
     display: flex;
     justify-content: space-between;
@@ -22,10 +20,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  
-   
   .testimonial-panel {
-    background-color: #afd1f0; /* Light blue color */
+    background-color: #1a2742; /* Light blue color */
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -56,13 +52,14 @@
     line-height: 1.4;
     margin-bottom: 20px;
     text-align: center;
+    color: white;
   }
   
   .testimonial-name {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    color: #000000;
+    color: white;
   }
   
   /* Add gap between testimonial panels */

@@ -1,42 +1,61 @@
-.about-us {
-    background-color: #f7f7f7;
-    padding: 2rem;
-  }
-  
-  .about-us-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .about-us-image {
-    flex: 0 0 50%;
-    padding-right: 2rem;
-  }
-  
-  .about-us-image img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .about-us-content {
-    flex: 1;
-  }
-  
-  .about-us-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .about-us-content p {
-    font-size: 1.2rem;
-  }
-  .about-us {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .about-us.fade-in {
-    opacity: 1;
-  }
+
+     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+
+    .about-us {
+      padding: 50px 0;
+      background-color: white;
+      margin: 80px;
+    }
+    
+    .about-us-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .about-us-image img {
+      max-width: 400px;
+      height: auto;
+      animation: fade-in 1s ease;
+    }
+    
+    .about-us-content {
+      width: 60%;
+      animation: slide-in 1s ease;
+    }
+    
+    .about-us h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: fade-in 1s ease;
+    }
+    
+    .about-us p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #666;
+      animation: slide-in 1s ease;
+    }
+    
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slide-in {
+      0% {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
     

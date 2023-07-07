@@ -10,7 +10,7 @@ const MentorHome = () => {
       </div>
       <div className="content">
         <h1 className="title">Lorem Ipsum</h1>
-        <p className="description">
+        <p className="mentor-description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <div className="cta">
