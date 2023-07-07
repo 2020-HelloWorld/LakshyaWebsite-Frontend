@@ -36,7 +36,6 @@ const AboutUs = () => {
           <p>
           Lakshya aims to empower women and students by leveraging the expertise of over 1000 women leaders who will serve as mentors and role models. Our mentors will work closely with women and students to help them discover their interests and provide guidance. We are committed to offering a wide range of career resources, including career-specific learning opportunities, career previews, corporate interactions, informative blogs, engaging webinars, live sessions, and a supportive peer community. Our focus extends to promoting women in STEM fields and assisting students in Tier 2 and Tier 3 cities to become industry-ready through targeted training programs. As a core initiative, Lakshya also actively promotes entrepreneurship programs for women and students, collaborating with incubation centers to provide comprehensive training and empowerment.
           </p>
-          {/* Additional content */}
         </div>
       </div>
     </section>
