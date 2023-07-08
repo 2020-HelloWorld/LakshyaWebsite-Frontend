@@ -1,0 +1,72 @@
+.mentor-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1a2742;
+  }
+  
+  .mentor-nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mentor-nav-logo {
+    width: auto;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .mentor-nav-company-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .mentor-nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mentor-nav-button {
+    padding: 10px 20px;
+    background-color: #1a2742;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .mentor-nav-button:hover {
+    background-color: black;
+    color: #fff;
+  }
+  
+  .mentor-nav-login-button {
+    padding: 10px 20px;
+    background-color: #1a2742;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .mentor-nav-login-button:hover {
+    background-color: black;
+  }
+  
+  .mentor-nav-sign-button {
+    padding: 10px 20px;
+    background-color: #1a2742;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .mentor-nav-sign-button:hover {
+    background-color: black;
+  }
