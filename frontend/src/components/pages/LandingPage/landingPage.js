@@ -7,6 +7,7 @@ import IntoScreen from "./IntroScreen/IntroScreen";
 import AboutUs from './aboutus/aboutus';
 import Companies from './companies/companies';
 import UserType from "./UserType/UserType";
+import Value from "./value/value";
 
 function LandingPage() {
   return (
@@ -16,6 +17,7 @@ function LandingPage() {
       <IntoScreen />
       <UserType />
       <Companies />
+      <Value />
       <AboutUs />
       <Footer />
     </div>
