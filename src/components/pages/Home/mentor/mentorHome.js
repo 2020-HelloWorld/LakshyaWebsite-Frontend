@@ -1,12 +1,13 @@
 import React from 'react'
 import MentorIntro from './MentorIntro/MentorIntro';
 import Testimonial from './testimonials/Testimonial';
-import { Footer, Navbar } from '../../../layout';
+import MentorNavBar from './MentorNav/MentorNavBar';
+import { Footer} from '../../../layout';
 
 function MentorHome() {
   return (
     <>
-    <Navbar/>
+    <MentorNavBar/>
     <MentorIntro />
     <Testimonial />
     <Footer/>
@@ -14,4 +15,4 @@ function MentorHome() {
   )
 }
 
-export default MentorHome
+export default MentorHome;

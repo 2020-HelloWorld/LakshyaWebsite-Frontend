@@ -1,6 +1,6 @@
 import React from 'react';
 import './MentorIntro.css';
-import mentorImage from './img/mentor.jpg';
+import mentorImage from '../../../../../static/design/mentor1.jpg';
 
 const MentorIntro = () => {
   return (
