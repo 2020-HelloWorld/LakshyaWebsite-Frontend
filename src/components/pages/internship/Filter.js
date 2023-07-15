@@ -17,7 +17,7 @@ const Filter = ({
   handleClearAll,
 }) => {
   return (
-    <div className="flex flex-col w-full md:w-1/4 p-4 border border-gray-500 rounded-lg bg-white mt-4 rounded-2xl box-border min-w-[300px] min-h-[600px] overflow-auto text-lg border-[1px] border-solid border-darkgray md:ml-auto md:order-first">
+    <div className="flex flex-col w-full md:w-1/4 p-4 border border-gray-500 rounded-lg bg-white mt-4 rounded-2xl box-border min-w-[300px] min-h-[500px] max-h-[600px] overflow-auto text-lg border-[1px] border-solid border-darkgray md:ml-auto md:order-first">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
           <img className="mr-2 w-4 h-4" src={filter} alt="Filter Icon" />
