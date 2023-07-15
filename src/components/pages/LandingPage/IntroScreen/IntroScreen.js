@@ -1,5 +1,6 @@
 import React from 'react';
 import "./IntroScreen.css";
+import introimg from '../../../../static/design/introimg.png';
 
 const IntoScreen = () => {
   return (
@@ -17,7 +18,7 @@ const IntoScreen = () => {
         </div>
         <div className=" intoduction-right">
            <div className="image-container"> 
-            <img src="./intoduction-image.png" alt="" />
+            <img src={introimg} alt="" />
           </div> 
         </div>
       </div>

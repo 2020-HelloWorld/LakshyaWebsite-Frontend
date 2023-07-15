@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './aboutus.css';
+import aboutUsImage from '../../../../static/design/student.png';
 
 const AboutUs = () => {
   useEffect(() => {
@@ -29,7 +30,7 @@ const AboutUs = () => {
     <section className="about-us">
       <div className="about-us-container">
         <div className="about-us-image">
-          <img src="./student.png" alt="About Us" />
+          <img src={aboutUsImage} alt="About Us" />
         </div>
         <div className="about-us-content">
           <h2>About Us</h2>
