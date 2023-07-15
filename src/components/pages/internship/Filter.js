@@ -23,7 +23,7 @@ const Filter = ({
           <img className="mr-2 w-4 h-4" src={filter} alt="Filter Icon" />
           <h2 className="text-lg font-oxygen mb-4">FILTERS</h2>
         </div>
-        <button className="text-sm text-blue-500 underline ml-auto bg-white" onClick={handleClearAll}>
+        <button className="text-sm text-blue-500  ml-auto bg-white" onClick={handleClearAll}>
           Clear all
         </button>
       </div>
