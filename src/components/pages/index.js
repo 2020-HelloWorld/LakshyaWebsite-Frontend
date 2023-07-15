@@ -11,3 +11,5 @@ export {default as mentorLogin} from "./Login/loginMentor/mentorLogin";
 export {default as jobList} from "./jobs/jobList/jobList";
 export {default as jobDescription} from "./jobs/jobDescription/jobDescription";
 export {default as jobPosting} from "./jobs/jobPosting/jobPosting";
+
+export {default as preferences} from "./preferences/preferences"
