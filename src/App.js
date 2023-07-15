@@ -15,7 +15,7 @@ import {
    jobList,
    jobDescription,
    jobPosting,
-preferences
+   preferences
   } from './components/pages';
 
 
@@ -24,11 +24,12 @@ function App() {
     <div className="App">
 
         <Switch>
-          <Route exact path='/' component={LandingPage}/>
+          
+          <Route exact path='/' component={LandingPage}/>   {/* Requires Rework */}
 
-          <Route path='/home/candidate' component={CandidateHome}/>
-          <Route path='/home/mentor' component={MentorHome}/>
-          <Route path='/home/company' component={CompanyHome}/>
+          <Route path='/home/candidate' component={CandidateHome}/> {/* Requires Rework */}
+          <Route path='/home/mentor' component={MentorHome}/> {/* Requires Rework */}
+          <Route path='/home/company' component={CompanyHome}/> {/* Requires Rework */}
 
           <Route path='/candidate/login' component={candidateLogin}/>
           <Route path='/company/login' component={companyLogin}/>
