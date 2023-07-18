@@ -40,7 +40,7 @@ const CommonSignUp = () => {
       break;
     default:
       // Provide default values if the type is not recognized
-      imageSrc = './studentlogin.svg';
+      imageSrc = student;
       fullNameLabel = 'Candidate Full Name';
       options = 'company/mentor';
       break;
