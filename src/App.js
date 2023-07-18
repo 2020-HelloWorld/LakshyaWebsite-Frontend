@@ -14,6 +14,7 @@ import {
    jobList,
    jobDescription,
    jobPosting,
+    Events,
    preferences,
    internshipdet
   } from './components/pages';
@@ -42,6 +43,8 @@ function App() {
           
           <Route path='/candidate/prefer' component={preferences}/>
 
+         <Route path='/event/list' component={Events}/>
+     
           <Route path='/internship/internshipdet' component={internshipdet}/>
         </Switch>
 
