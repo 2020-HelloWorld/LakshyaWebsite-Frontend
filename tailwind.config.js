@@ -40,7 +40,7 @@ module.exports = {
         palegoldenrod: "#cafaba",
         royalblue: "#1877f2",
         lightsteelblue:"#c4d5f5",
-        lavender:"#ede4f"
+        lavender:"#ede4ff"
         
       },
       fontFamily: {
