@@ -11,6 +11,8 @@ export {default as jobList} from "./jobs/jobList/jobList";
 export {default as jobDescription} from "./jobs/jobDescription/jobDescription";
 export {default as jobPosting} from "./jobs/jobPosting/jobPosting";
 
+export {default as Events} from "./events/events"
+
 export {default as preferences} from "./preferences/preferences"
 
 export {default as internshipdet} from "./internship/InternshipDet/internshipdetails"
