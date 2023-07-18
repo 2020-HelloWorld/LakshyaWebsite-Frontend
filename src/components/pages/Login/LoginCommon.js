@@ -1,28 +1,27 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React,{useState} from 'react';
 import google from '../../../static/logo/google.svg';
 import fb from '../../../static/logo/facebook.svg';
 import student from '../../../static/design/studentlogin.png';
 import company from '../../../static/design/companylogin.png';
 import mentor from '../../../static/design/mentorlogin.png';
-
-const LoginCommon = () => {
-  const { type } = useParams();
+import axios from 'axios';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+const LoginCommon = ({ type }) => {
   let imageSrc = '';
 
   let options = '';
 
   // Determine the image source and fullNameLabel based on the type prop
   switch (type) {
-    case 'student':
+    case "candidate":
       imageSrc = student;
       options = 'Company/Mentor';
       break;
-    case 'company':
+    case "company":
       imageSrc = company;
       options = 'Mentor/Candidate';
       break;
-    case 'mentor':
+    case "mentor":
       imageSrc = mentor;
       options = 'Candidate/Company';
       break;
@@ -32,6 +31,50 @@ const LoginCommon = () => {
       options = 'company/Mentor';
       break;
   }
+
+  const [isLogin,setIsLogin] = useState(false)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLoginSubmit=async(e)=>{
+    e.preventDefault();
+    try {
+        const jsonData={
+          id:email,
+          passwd:password,
+        }
+       
+       await axios.post('/auth/login/',jsonData,{
+          withCredentials:true,
+          headers:{
+            "Content-Type":'application/json',
+          },
+        })
+        .then((response)=>{
+          const cookies=response.headers["set-cookie"];
+          if(cookies)
+          {
+            cookies.forEach((cookie)=>{
+              document.cookie=cookie;
+            });
+          }
+
+          if (response.status === 200) {
+              console.log(document.cookie);
+              console.log("successfull");
+              setIsLogin(true);
+          }
+
+        })
+        .catch((error)=>console.log(error))
+    } catch (error) {
+        console.log('Login failed');
+    }
+  }
+  if(isLogin){
+    return <Redirect to="/home/:type"/>
+  }
+        
 
   return (
     <div className="flex flex-col md:flex-row h-screen">
@@ -61,6 +104,8 @@ const LoginCommon = () => {
             id="email"
             placeholder="Email"
             className="border border-gray-300 px-4 py-3 w-96"
+            value={email}
+            onChange={e=>setEmail(e.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -72,12 +117,14 @@ const LoginCommon = () => {
             id="password"
             placeholder="Must be at least 8 characters"
             className="border border-gray-300 px-4 py-3 w-96"
+            value={password}
+            onChange={e=>setPassword(e.target.value)}
           />
         </div>
         <p className="text-sm text-blue-500 text-left mb-4">
           Forgot Password?
         </p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white text-xl px-10 py-3 w-96 mb-2">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white text-xl px-10 py-3 w-96 mb-2" onClick={handleLoginSubmit}>
           Login
         </button>
         <p className="text-sm text-gray-600">
@@ -96,6 +143,7 @@ const LoginCommon = () => {
       </div>
     </div>
   );
+
 };
 
 export default LoginCommon;
