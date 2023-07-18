@@ -7,21 +7,22 @@ import mentor from '../../../static/design/mentorlogin.png';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 const LoginCommon = ({ type }) => {
+  
   let imageSrc = '';
 
   let options = '';
 
   // Determine the image source and fullNameLabel based on the type prop
   switch (type) {
-    case "candidate":
+    case 1:
       imageSrc = student;
       options = 'Company/Mentor';
       break;
-    case "company":
+    case 2:
       imageSrc = company;
       options = 'Mentor/Candidate';
       break;
-    case "mentor":
+    case 3:
       imageSrc = mentor;
       options = 'Candidate/Company';
       break;
@@ -72,7 +73,7 @@ const LoginCommon = ({ type }) => {
     }
   }
   if(isLogin){
-    return <Redirect to="/home/:type"/>
+    return <Redirect to="/"/>
   }
         
 
