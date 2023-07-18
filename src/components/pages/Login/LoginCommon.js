@@ -1,26 +1,28 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import google from '../../../static/logo/google.svg';
 import fb from '../../../static/logo/facebook.svg';
 import student from '../../../static/design/studentlogin.png';
 import company from '../../../static/design/companylogin.png';
 import mentor from '../../../static/design/mentorlogin.png';
 
-const LoginCommon = ({ type }) => {
+const LoginCommon = () => {
+  const { type } = useParams();
   let imageSrc = '';
 
   let options = '';
 
   // Determine the image source and fullNameLabel based on the type prop
   switch (type) {
-    case 1:
+    case 'student':
       imageSrc = student;
       options = 'Company/Mentor';
       break;
-    case 2:
+    case 'company':
       imageSrc = company;
       options = 'Mentor/Candidate';
       break;
-    case 3:
+    case 'mentor':
       imageSrc = mentor;
       options = 'Candidate/Company';
       break;
@@ -97,3 +99,4 @@ const LoginCommon = ({ type }) => {
 };
 
 export default LoginCommon;
+
