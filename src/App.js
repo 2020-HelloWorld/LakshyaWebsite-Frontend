@@ -12,6 +12,7 @@ import {
    candidateLogin, 
    companyLogin, 
    mentorLogin,
+   Login,
    jobList,
    jobDescription,
    jobPosting,
@@ -34,12 +35,14 @@ function App() {
           <Route path='/candidate/login' component={candidateLogin}/>
           <Route path='/company/login' component={companyLogin}/>
           <Route path='/mentor/login' component={mentorLogin}/>
-
+     
+          <Route path="/login/:type" component={Login} />
+     
           <Route path='/job/list' component={jobList}/>
           <Route path='/job/description' component={jobDescription}/>
           <Route path='/post/job' component={jobPosting}/>
           
-          <Route path='/prefer' component={preferences}/>
+          <Route path='/candidate/prefer' component={preferences}/>
         </Switch>
 
         <ReloadOnBackButton />
