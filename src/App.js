@@ -14,7 +14,8 @@ import {
    jobList,
    jobDescription,
    jobPosting,
-   preferences
+   preferences,
+   internshipdet
   } from './components/pages';
 
 
@@ -40,6 +41,8 @@ function App() {
           <Route path='/post/job' component={jobPosting}/>
           
           <Route path='/candidate/prefer' component={preferences}/>
+
+          <Route path='/internship/internshipdet' component={internshipdet}/>
         </Switch>
 
         <ReloadOnBackButton />
