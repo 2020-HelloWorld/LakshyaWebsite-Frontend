@@ -9,9 +9,6 @@ import {
    MentorHome, 
    CompanyHome, 
    CandidateHome, 
-   candidateLogin, 
-   companyLogin, 
-   mentorLogin,
    Login,
    jobList,
    jobDescription,
@@ -32,9 +29,7 @@ function App() {
           <Route path='/home/mentor' component={MentorHome}/> {/* Requires Rework */}
           <Route path='/home/company' component={CompanyHome}/> {/* Requires Rework */}
 
-          <Route path='/candidate/login' component={candidateLogin}/>
-          <Route path='/company/login' component={companyLogin}/>
-          <Route path='/mentor/login' component={mentorLogin}/>
+         
      
           <Route path="/login/:type" component={Login} />
      
