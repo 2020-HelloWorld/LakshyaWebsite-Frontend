@@ -10,6 +10,7 @@ import {
    CompanyHome, 
    CandidateHome, 
    Login,
+   SignUp,
    jobList,
    jobDescription,
    jobPosting,
@@ -32,6 +33,7 @@ function App() {
          
      
           <Route path="/login/:type" component={Login} />
+         <Route path="/signup/:type" component={SignUp} />
      
           <Route path='/job/list' component={jobList}/>
           <Route path='/job/description' component={jobDescription}/>
