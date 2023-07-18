@@ -12,7 +12,10 @@ module.exports = {
       colors: {
         white: "#fff",
         darkgray: "#a9a9a9",
-        dimgray: "#626262",
+        dimgray: {
+          "100": "#595959",
+          "200": "#4d4d4d",
+        },
         black: "#000",
         deepskyblue: {
           "100": "#00a5f0",
@@ -25,12 +28,19 @@ module.exports = {
         },
         steelblue: "#0091cf",
         black: "#000",
+        deepskyblue: {
+          "100": "#00a5f0",
+          "200": "#00a5ec",
+        },
         deepskyblue: "#00a5ec",
         darkgray: "#a9a9a9",
         dimgray: "#727272",
         deeppink: "#f00073",
-        cornflowerblue: "#78a6ff",
+        cornflowerblue: "#2867b2",
+        palegoldenrod: "#cafaba",
         royalblue: "#1877f2",
+        lightsteelblue:"#c4d5f5",
+        lavender:"#ede4f"
         
       },
       fontFamily: {
@@ -50,7 +60,17 @@ module.exports = {
       base: "16px",
       "17xl": "36px",
     },
+    keyframes: {
+      'fade-in': {
+        '0%': { opacity: '0' },
+        '100%': { opacity: '1' },
+      },
+      'slide-in': {
+        '0%': { transform: 'translateX(-50px)', opacity: '0' },
+        '100%': { transform: 'translateX(0)', opacity: '1' },
+      }},
   },
+  
   corePlugins: {
     preflight: false,
   },
