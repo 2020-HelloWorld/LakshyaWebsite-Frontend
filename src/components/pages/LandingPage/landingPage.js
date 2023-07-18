@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Navbar ,Footer} from '../../layout';
 
-import IntoScreen from "./IntroScreen/IntroScreen";
+import IntroScreen from "./IntroScreen/IntroScreen";
 
 import Companies from './companies/companies';
 import UserType from "./UserType/UserType";
@@ -14,7 +14,7 @@ function LandingPage() {
     <div>
       <div>
       <Navbar />
-      <IntoScreen />
+      <IntroScreen />
       <UserType />
       <Companies />
       <Footer />
