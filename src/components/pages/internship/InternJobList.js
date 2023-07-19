@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Filter from './Filter';
+import axios from 'axios';
 
 import search from '../../../static/logo/search.png';
 import home from '../../../static/logo/home.png';
@@ -15,6 +16,7 @@ const InternJobList = () => {
   const [partTime, setPartTime] = useState(false);
   const [minStipend, setMinStipend] = useState(0);
   const [showAdditionalFilters, setShowAdditionalFilters] = useState(false);
+  const [data, setData] = useState(null);
 
   const jobDetails = [
     {
@@ -42,6 +44,20 @@ const InternJobList = () => {
     // Add more job details objects as needed
   ];
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/internships/intern/');// Replace with your sample link
+        console.log(response);
+        setData(response.data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const logos = [
     {
       alt: 'Hiring Logo',
@@ -65,6 +81,9 @@ const InternJobList = () => {
     },
     // Add more logo objects as needed
   ];
+
+
+  
 
   const filteredJobs = jobDetails.filter((job) => {
     // Apply filtering logic based on the selected filters
