@@ -41,8 +41,8 @@ const LoginCommon = ({ type }) => {
     e.preventDefault();
     try {
         const jsonData={
-          id:email,
-          passwd:password,
+          email:email,
+          password:password,
         }
        
        await axios.post('/auth/login/',jsonData,{
@@ -63,7 +63,8 @@ const LoginCommon = ({ type }) => {
           if (response.status === 200) {
               console.log(document.cookie);
               console.log("successfull");
-              setIsLogin(true);
+              console.log(response);
+              //setIsLogin(true);
           }
 
         })
