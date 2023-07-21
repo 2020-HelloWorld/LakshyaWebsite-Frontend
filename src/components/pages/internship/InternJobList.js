@@ -47,7 +47,12 @@ const InternJobList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/internships/intern/');// Replace with your sample link
+        const response = await axios.post('/internship/list/',{},{
+          withCredentials:true,
+          headers:{
+            "Content-Type" : 'application/json',
+          },
+        });// Replace with your sample link
         console.log(response);
         setData(response.data);
       } catch (error) {
