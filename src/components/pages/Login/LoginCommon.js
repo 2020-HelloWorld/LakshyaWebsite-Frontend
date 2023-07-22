@@ -6,6 +6,7 @@ import company from '../../../static/design/companylogin.png';
 import mentor from '../../../static/design/mentorlogin.png';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { GoogleLogin } from '@react-oauth/google';
 const LoginCommon = ({ type }) => {
   
   let imageSrc = '';
@@ -76,18 +77,39 @@ const LoginCommon = ({ type }) => {
   if(isLogin){
     return <Redirect to="/"/>
   }
+
+
+  const handleGoogleLogin = async (response) => {
+    console.log("Google Login Successful. Sending credentials for verification!");
+    await axios.post('/auth/google/',{credential:response.credential},{
+      withCredentials:true,
+      headers:{
+        "Content-Type":'application/json',
+      },
+    }).then((response)=>{
+      if(response.status==200){
+        console.log("Login Successful");
+      }
+    })
+  };
+
+  const errorMessage = (error) => {
+      console.log("Failed to login to google")
+      console.log(error);
+  };
         
 
   return (
     <div className="flex flex-col md:flex-row h-screen">
       <div className="w-full md:w-1/2 bg-white flex flex-col justify-center items-center p-10">
         <h1 className="text-4xl font-bold mb-4 font-oxygen">Hello Again</h1>
+        <GoogleLogin  onSuccess={handleGoogleLogin} onError={errorMessage} />
         <div className="flex items-center justify-between w-96 mb-2">
           <hr className="w-1/3 bg-gray-500"/>
           <p className="text-sm text-gray-500 px-2">OR</p>
           <hr className="w-1/3 bg-gray-500" />
         </div>
-        <div className="flex space-x-4">
+        {/* <div className="flex space-x-4">
           <button className="bg-white text-gray-900 hover:bg-gray-300 border border-gray-300 px-6 py-2 flex items-center justify-center">
             <img src={google} alt="Google" className="w-10 h-9" />
             <span className="ml-2 font-oxygen">Sign in with Google</span>
@@ -96,7 +118,7 @@ const LoginCommon = ({ type }) => {
             <img src={fb} alt="Facebook" className="w-10 h-9" />
             <span className="ml-2 font-oxygen">Sign in with Facebook</span>
           </button>
-        </div>
+        </div> */}
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             <strong>Email</strong>

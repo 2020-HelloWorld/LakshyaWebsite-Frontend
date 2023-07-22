@@ -2,8 +2,9 @@
   "name": "reactapp",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://f029-2401-4900-330c-a395-ccc6-2e96-14a6-3aec.ngrok-free.app",
+  "proxy": "https://a76a-2401-4900-62a6-f713-805e-1384-76c3-de60.ngrok-free.app",
   "dependencies": {
+    "@react-oauth/google": "^0.11.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
