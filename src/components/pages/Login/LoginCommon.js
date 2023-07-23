@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import google from '../../../static/logo/google.svg';
+import { useParams } from 'react-router-dom';
 import fb from '../../../static/logo/facebook.svg';
 import student from '../../../static/design/studentlogin.png';
 import company from '../../../static/design/companylogin.png';
@@ -7,23 +7,23 @@ import mentor from '../../../static/design/mentorlogin.png';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { GoogleLogin } from '@react-oauth/google';
-const LoginCommon = ({ type }) => {
-  
+const LoginCommon = () => {
+  const { type } = useParams();
   let imageSrc = '';
 
   let options = '';
 
   // Determine the image source and fullNameLabel based on the type prop
   switch (type) {
-    case 1:
+    case 'candidate':
       imageSrc = student;
       options = 'Company/Mentor';
       break;
-    case 2:
+    case 'company':
       imageSrc = company;
       options = 'Mentor/Candidate';
       break;
-    case 3:
+    case 'mentor':
       imageSrc = mentor;
       options = 'Candidate/Company';
       break;
@@ -103,22 +103,22 @@ const LoginCommon = ({ type }) => {
     <div className="flex flex-col md:flex-row h-screen">
       <div className="w-full md:w-1/2 bg-white flex flex-col justify-center items-center p-10">
         <h1 className="text-4xl font-bold mb-4 font-oxygen">Hello Again</h1>
-        <GoogleLogin  onSuccess={handleGoogleLogin} onError={errorMessage} />
+        <div className="flex items-center justify-between w-96 mb-2">
+          {/* Google Login button */}
+          <GoogleLogin onSuccess={handleGoogleLogin} onError={errorMessage} />
+          
+          {/* Sign in with Facebook button */}
+          <button className="bg-blue-500 text-white hover:bg-cornflowerblue border border-gray-300 px-6  flex items-center justify-center rounded">
+            <img src={fb} alt="Facebook" className="w-9 h-9" />
+            <span className="ml-2 font-oxygen">Sign in with Facebook</span>
+          </button>
+        </div>
         <div className="flex items-center justify-between w-96 mb-2">
           <hr className="w-1/3 bg-gray-500"/>
           <p className="text-sm text-gray-500 px-2">OR</p>
           <hr className="w-1/3 bg-gray-500" />
         </div>
-        {/* <div className="flex space-x-4">
-          <button className="bg-white text-gray-900 hover:bg-gray-300 border border-gray-300 px-6 py-2 flex items-center justify-center">
-            <img src={google} alt="Google" className="w-10 h-9" />
-            <span className="ml-2 font-oxygen">Sign in with Google</span>
-          </button>
-          <button className="bg-blue-500 text-gray-900 hover:bg-blue-700 border border-gray-300 px-6 py-2  flex items-center justify-center">
-            <img src={fb} alt="Facebook" className="w-10 h-9" />
-            <span className="ml-2 font-oxygen">Sign in with Facebook</span>
-          </button>
-        </div> */}
+       
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             <strong>Email</strong>
@@ -127,7 +127,7 @@ const LoginCommon = ({ type }) => {
             type="email"
             id="email"
             placeholder="Email"
-            className="border border-gray-300 px-4 py-3 w-96"
+            className="border border-gray-300 px-4 py-3 w-96 rounded"
             value={email}
             onChange={e=>setEmail(e.target.value)}
           />
@@ -140,7 +140,7 @@ const LoginCommon = ({ type }) => {
             type="password"
             id="password"
             placeholder="Must be at least 8 characters"
-            className="border border-gray-300 px-4 py-3 w-96"
+            className="border border-gray-300 px-4 py-3 w-96 rounded"
             value={password}
             onChange={e=>setPassword(e.target.value)}
           />
@@ -148,7 +148,7 @@ const LoginCommon = ({ type }) => {
         <p className="text-sm text-blue-500 text-left mb-4">
           Forgot Password?
         </p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white text-xl px-10 py-3 w-96 mb-2" onClick={handleLoginSubmit}>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white text-xl px-10 py-3 w-96 mb-2 rounded" onClick={handleLoginSubmit}>
           Login
         </button>
         <p className="text-sm text-gray-600">
