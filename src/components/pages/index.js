@@ -13,6 +13,8 @@ export {default as jobPosting} from "./jobs/jobPosting/jobPosting";
 
 export {default as Events} from "./events/event"
 
+export {default as Mentor} from "./FindMentor/findmentor"
+
 export {default as preferences} from "./preferences/preferences"
 
 export {default as Internship} from './internship/internship'
