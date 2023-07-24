@@ -15,6 +15,7 @@ import {
    jobDescription,
    jobPosting,
     Events,
+    Mentor,
    preferences,
     Internship,
    internshipdet
@@ -46,6 +47,8 @@ function App() {
 
          <Route path='/event/list' component={Events}/>
 
+         <Route path='/mentor/find' component={Mentor}/>
+     
          <Route path='/internship/list' component={Internship}/>
           <Route path='/internship/internshipdet' component={internshipdet}/>
         </Switch>
