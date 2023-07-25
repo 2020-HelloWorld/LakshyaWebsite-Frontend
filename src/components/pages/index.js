@@ -12,6 +12,7 @@ export {default as jobDescription} from "./jobs/jobDescription/jobDescription";
 export {default as jobPosting} from "./jobs/jobPosting/jobPosting";
 
 export {default as Events} from "./events/event"
+export {default as EventDet} from "./events/EventDetails/eventdet"
 
 export {default as Mentor} from "./FindMentor/findmentor"
 
