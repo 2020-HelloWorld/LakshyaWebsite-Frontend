@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import EventSearch from "./EventSearch";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import cimage from "../../../../static/design/companylogin.png";
 import banner from "../../../../static/design/eventbanner.svg";
 import calendar from "../../../../static/logo/calendar.svg";
@@ -139,8 +140,9 @@ const EventList = () => {
                         <span className="text-deepskyblue font-bold">{event.price}</span>
                         <span className="text-gray-600 ml-1">Onwards</span>
                       </div>
-                      <button className="bg-blue-500 text-white px-5 py-3">Register</button>
-                    </div>
+                    <Link to={`/event/detail/${event.id}`}>
+                <button className="bg-blue-500 text-white px-5 py-3">Register</button>
+                    </Link>
                   </div>
                 </div>
               ))}
