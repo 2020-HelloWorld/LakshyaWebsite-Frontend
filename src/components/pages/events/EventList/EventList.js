@@ -145,6 +145,7 @@ const EventList = () => {
                     </Link>
                   </div>
                 </div>
+                </div>
               ))}
             </div>
           </div>
