@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import EventSearch from "./EventSearch";
+import axios from "axios";
 import cimage from "../../../../static/design/companylogin.png";
 import banner from "../../../../static/design/eventbanner.svg";
 import calendar from "../../../../static/logo/calendar.svg";
@@ -8,50 +9,51 @@ import share from "../../../../static/logo/share.svg";
 import bookmark from "../../../../static/logo/bookmark.svg";
 
 const EventList = () => {
-  const events = [
-    {
-      id: 1,
-      title: "The Test Tribe",
-      date: "Jul 15",
-      location: "Topsia, Kolkata",
-      price: "₹ 100",
-      image: cimage,
-      category: "Tech Conference",
-    },
-    {
-      id: 2,
-      title: "Event 2",
-      date: "Aug 10",
-      location: "City 2",
-      price: "₹ 200",
-      image: "/event2.jpg",
-      category: "Seminar",
-    },
-    {
-      id: 3,
-      title: "Event 3",
-      date: "Sep 5",
-      location: "City 3",
-      price: "₹ 150",
-      image: "/event3.jpg",
-      category: "Workshop",
-    },
-    {
-      id: 4,
-      title: "Event 4",
-      date: "Sep 5",
-      location: "City 3",
-      price: "₹ 150",
-      image: "/event3.jpg",
-      category: "Tech Conference",
-    },
+  // const eventsData = [
+  //   {
+  //     id: 1,
+  //     title: "The Test Tribe",
+  //     date: "Jul 15",
+  //     location: "Topsia, Kolkata",
+  //     price: "₹ 100",
+  //     image: cimage,
+  //     category: "Tech Conference",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Event 2",
+  //     date: "Aug 10",
+  //     location: "City 2",
+  //     price: "₹ 200",
+  //     image: "/event2.jpg",
+  //     category: "Seminar",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Event 3",
+  //     date: "Sep 5",
+  //     location: "City 3",
+  //     price: "₹ 150",
+  //     image: "/event3.jpg",
+  //     category: "Workshop",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Event 4",
+  //     date: "Sep 5",
+  //     location: "City 3",
+  //     price: "₹ 150",
+  //     image: "/event3.jpg",
+  //     category: "Tech Conference",
+  //   },
     
-  ];
-
+  // ];
+  const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState(events);
   // Function to group events by categories
-  const groupEventsByCategory = (events) => {
+  const groupEventsByCategory = (eventsData) => {
     const groupedEvents = {};
-    events.forEach((event) => {
+    eventsData.forEach((event) => {
       const { category } = event;
       if (groupedEvents[category]) {
         groupedEvents[category].push(event);
@@ -62,7 +64,25 @@ const EventList = () => {
     return groupedEvents;
   };
 
-  const [filteredEvents, setFilteredEvents] = useState(events);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.post("/event/events/",{})
+      .then((response)=>{
+        setEvents(response.data);
+        setFilteredEvents(response.data); 
+        console.log(response.data)
+      }); 
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  // const [filteredEvents, setFilteredEvents] = useState(events);
 
   const handleSearch = (filteredEvents) => {
     setFilteredEvents(filteredEvents);
@@ -99,6 +119,7 @@ const EventList = () => {
                       <div className="flex">
                         <img className="w-5 h-5 mr-2" src={bookmark} alt="Icon 1" />
                         <img className="w-5 h-5" src={share} alt="Icon 2" />
+                        
                       </div>
                     </div>
                     <div className="flex items-center text-gray-600 mb-4">
