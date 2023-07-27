@@ -1,6 +1,6 @@
 import React from 'react';
 import EventList from './EventList/EventList';
-import NavBar from '../../layout/Navbar/NavBar';
+import NavBar from '../../layout/Navbar/studentNavBar';
 import Footer from '../../layout/footer/footer'
 
 const Events = () => {

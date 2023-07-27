@@ -20,3 +20,6 @@ export {default as preferences} from "./preferences/preferences"
 
 export {default as Internship} from './internship/internship'
 export {default as internshipdet} from "./internship/InternshipDet/internshipdetails"
+
+
+export {default as aboutus} from "./aboutus/aboutus"

@@ -1,6 +1,6 @@
 import React from 'react';
 import InternJobList from './InternJobList';
-import NavBar from '../../layout/Navbar/NavBar';
+import NavBar from '../../layout/Navbar/studentNavBar';
 
 const Internship = () => {
   return (
