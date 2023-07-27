@@ -5,8 +5,8 @@ const Founder = () => {
   return (
     <div className="bg-gray-100 w-full h-[500px] flex items-center justify-center">
       <div className="flex flex-col items-start w-full md:max-w-[600px] mx-4 md:mx-auto text-white">
-  <div className="text-8xl md:font-5xl font-general-sans md:text-[40px] sm:font-[48px]">Founder</div>
-  <div className="font-[24px] mt-4">
+  <div className="text-[38px] md:text-5xl font-general-sans md:text-[40px] sm:text-[48px]">Founder</div>
+  <div className="text-[20px] mt-4">
     Hema Shantharam, PMP® hails from Bangalore. A Computer Science Engineer by qualification from PESIT, she also has two Management degrees under her belt - MPWE from IIM Bangalore and EGPM from IIM Lucknow, W3C program from IIM Kashipur. Apart from being an entrepreneur and a Startup mentor, Hema is also a Reiki Practitioner, Certified Yoga teacher, and specializing in Yoga for Diabetes Management.
   </div>
 </div>
