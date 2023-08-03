@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import topimg1 from '../../../static/logo/topimg1.svg'
 import topimg2 from '../../../static/logo/topimg2.svg'
 import topimg3 from '../../../static/logo/topimg3.svg'
@@ -38,27 +39,41 @@ const Navbar = () => {
 
             {/* Normal Navbar */}
             <div className={`hidden md:flex flex-wrap md:flex-nowrap items-center`}>
+              <Link to='/about'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 About Us
               </button>
+              </Link>
+              <Link to='/event/list'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 Events
               </button>
+              </Link>
+              <Link to='/job/list'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 Jobs
               </button>
+              </Link>
+              <Link to='/course/list'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 Courses
               </button>
+              </Link>
+              <Link to='/internship/list'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 Internships
               </button>
+              </Link>
+             
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 Abroad Education
               </button>
+              
+              <Link to='/mentor/find'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 Find A Mentor
               </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -67,27 +82,39 @@ const Navbar = () => {
       {/* Mobile Dropdown */}
       {isDropdownOpen && (
         <div className="md:hidden bg-gray-100">
+           <Link to='/about'>
           <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold text-[16px] w-full text-left">
             About Us
           </button>
+          </Link>
+          <Link to='/event/list'>
           <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold w-full text-[16px] text-left">
             Events
           </button>
+          </Link>
+          <Link to='/job/list'>
           <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold w-full text-[16px] text-left">
             Jobs
           </button>
+          </Link>
+          <Link to='/course/list'>
           <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold w-full text-[16px] text-left">
             Courses
           </button>
+          </Link>
+          <Link to='/internship/list'>
           <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold w-full text-[16px] text-left">
             Internships
           </button>
+          </Link>
           <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold w-full text-[16px] text-left">
             Abroad Education
           </button>
+          <Link to='/mentor/find'>
           <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold w-full text-[16px] text-left">
             Find A Mentor
           </button>
+          </Link>
         </div>
       )}
     </div>
