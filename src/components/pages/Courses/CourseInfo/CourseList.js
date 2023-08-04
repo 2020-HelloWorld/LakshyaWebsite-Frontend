@@ -5,6 +5,7 @@ import start from '../../../../static/logo/start.svg';
 import user from '../../../../static/logo/topimg3.svg';
 import language from '../../../../static/logo/translate.png';
 import category1 from '../../../../static/logo/apps.svg'
+import { Link } from 'react-router-dom';
 
 const courseData = [
   {
@@ -183,9 +184,11 @@ const CourseList = () => {
                         <p>{course.category}</p> {/* Display the category */}
                       </div>
                       <div className="bg-blue-200 text-blue-800 font-bold px-5 py-2 rounded-lg mt-4">
+                          <Link to={`/course/description/${course.id}`}>
                         <button className="bg-blue-200 text-blue-800 font-bold px-4 py-2 rounded-lg hover:underline">
                           View Details
                         </button>
+                           </Link>
                       </div>
                     </div>
                   </div>
