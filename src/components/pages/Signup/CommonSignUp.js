@@ -7,12 +7,12 @@ import fb from '../../../static/logo/facebook.svg';
 import student from '../../../static/design/studentlogin.png';
 import company from '../../../static/design/companylogin.png';
 import mentor from '../../../static/design/mentorlogin.png';
+import {Link} from 'react-router-dom';
 import { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { async } from 'q';
-
 
 const CommonSignUp = () => {
   const { type } = useParams();
@@ -252,7 +252,7 @@ const CommonSignUp = () => {
           Register as {options}
         </p>
         <p className="text-sm text-gray-600">
-          Already registered? Login
+          Already registered? <Link to={`/login/${type}`}><span className='text-blue-500'>Login</span></Link>
         </p>
       </div>
       <div className="w-full md:w-1/2 bg-gray-100 flex justify-center items-center rounded-b-full overflow-hidden rotate-90">
