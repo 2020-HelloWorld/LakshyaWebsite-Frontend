@@ -4,7 +4,7 @@ import NavBar from '../../../layout/Navbar/studentNavBar';
 import Footer from '../../../layout/footer/footer';
 const jobList = () => {
   return (
-    <div className="pt-8">
+    <div>
         <NavBar />
         <JobList />
         <Footer/>
