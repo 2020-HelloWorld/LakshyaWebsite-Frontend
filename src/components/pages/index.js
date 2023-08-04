@@ -17,6 +17,7 @@ export {default as EventDet} from "./events/EventDetails/eventdet"
 export {default as Mentor} from "./FindMentor/findmentor"
 
 export {default as Course} from './Courses/CourseInfo/courses';
+export {default as CourseDetailsPage} from './Courses/CourseDetails/CourseDetails'
 
 
 export {default as preferences} from "./preferences/preferences"
