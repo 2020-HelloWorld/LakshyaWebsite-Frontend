@@ -1,15 +1,30 @@
 import search from '../../../static/logo/search.png';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 
-const buttonLists = [
-  ["Data Entry", "Digital Marketing", "Web Development", "Marketing/Sales", "Human Resources"],
-  ["Software Development", "General Management", "Social Media Marketing", "Project Management"]
-];
+// const buttonLists = [
+//   ["Data Entry", "Digital Marketing", "Web Development", "Marketing/Sales", "Human Resources"],
+//   ["Software Development", "General Management", "Social Media Marketing", "Project Management"]
+// ];
 
 const PreferenceIntro = () => {
   const [selectedPreferences, setSelectedPreferences] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [buttonLists, setButtonLists] = useState([]);
 
+  useEffect(() => {
+    fetchDataFromBackend();
+  }, []);
+  
+  
+  const fetchDataFromBackend = async () => {
+    try {
+      const response = await axios.post('/event/detail/',{});
+      setButtonLists(response.data); 
+    } catch (error) {
+      console.error('Error fetching data from the backend:', error);
+    }
+  };
   const handlePreferenceClick = (preference) => {
     setSelectedPreferences((prevPreferences) => [...prevPreferences, preference]);
   };
@@ -27,6 +42,18 @@ const PreferenceIntro = () => {
         buttonName.toLowerCase().includes(searchInput.toLowerCase()) &&
         !selectedPreferences.includes(buttonName)
     );
+
+    const handleButtonClick = async () => {
+      // Send selectedPreferences to the backend
+      try {
+        await axios.post('/backend-api', {
+          selectedPreferences: selectedPreferences
+        });
+        // Handle any success or error response from the backend if needed
+      } catch (error) {
+        console.error('Error sending data to the backend:', error);
+      }
+    };
 
   return (
     <div className="relative bg-white w-full min-h-screen overflow-hidden text-left text-xl text-dimgray font-inter">
@@ -80,8 +107,8 @@ const PreferenceIntro = () => {
           </div>
         </div>
       </div>
-      <button className="absolute bottom-[1%] right-[10%] bg-blue-500 text-white px-7 py-4 text-xl md:text-2xl lg:text-3xl">
-        Find
+      <button className="absolute bottom-[1%] right-[10%] bg-blue-500 text-white px-7 py-4 text-xl md:text-2xl lg:text-3xl" onClick={handleButtonClick}>
+        Continue
       </button>
     </div>
   );
