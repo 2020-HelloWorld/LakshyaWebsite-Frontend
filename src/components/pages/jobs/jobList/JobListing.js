@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import JobFilter from './JobFilter';
-
+import axios from 'axios';
 import search from '../../../../static/logo/search.png';
 import home from '../../../../static/logo/home.png';
 import calendar from '../../../../static/logo/calendar.png';
 import money from '../../../../static/logo/money.png';
 import trend from '../../../../static/logo/trend.png';
-
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 import location1 from '../../../../static/logo/location.svg'
 
 
@@ -22,39 +22,39 @@ const JobList = () => {
  
   
 
-  const jobDetails = [
-    {
-      title: 'Senior Automation Tester',
-      company: 'EPAM Anywhere',
-      location: 'Bangalore',
-      duration: '06 Months',
-      salary: '8000 ₹ /Month',
-      experience: '3+ Years',
-      type: 'WORK FROM HOME',
-      image: search,
-    },
-    {
-      title: 'Data Scientist',
-      company: 'EPAM Anywhere',
-      location: 'Bangalore',
-      duration: '06 Months',
-      salary: '8000 ₹ /Month',
-      experience: '3+ Years',
-      type: 'Part Time',
-      image: search,
-    },
-    {
-      title: 'Data Scientist',
-      company: 'EPAM Anywhere',
-      location: 'Delhi',
-      duration: '06 Months',
-      salary: '8000 ₹ /Month',
-      experience: '3+ Years',
-      type: 'WORK FROM HOME',
-      image: search,
-    },
-    // Add more job details objects as needed
-  ];
+  // const jobDetails = [
+  //   {
+  //     title: 'Senior Automation Tester',
+  //     company: 'EPAM Anywhere',
+  //     location: 'Bangalore',
+  //     duration: '06 Months',
+  //     salary: '8000 ₹ /Month',
+  //     experience: '3+ Years',
+  //     type: 'WORK FROM HOME',
+  //     image: search,
+  //   },
+  //   {
+  //     title: 'Data Scientist',
+  //     company: 'EPAM Anywhere',
+  //     location: 'Bangalore',
+  //     duration: '06 Months',
+  //     salary: '8000 ₹ /Month',
+  //     experience: '3+ Years',
+  //     type: 'Part Time',
+  //     image: search,
+  //   },
+  //   {
+  //     title: 'Data Scientist',
+  //     company: 'EPAM Anywhere',
+  //     location: 'Delhi',
+  //     duration: '06 Months',
+  //     salary: '8000 ₹ /Month',
+  //     experience: '3+ Years',
+  //     type: 'WORK FROM HOME',
+  //     image: search,
+  //   },
+  //   // Add more job details objects as needed
+  // ];
 
   const logos = [
     {
@@ -79,6 +79,24 @@ const JobList = () => {
     },
     // Add more logo objects as needed
   ];
+
+  const [jobDetails, setJobDetails] = useState([]);
+
+  // Function to fetch job details from the backend API
+  const fetchJobDetails = async () => {
+    try {
+      // Replace 'YOUR_BACKEND_API_ENDPOINT' with the actual URL of your backend API
+      const response = await axios.post('/job/list/',{});
+      setJobDetails(response.data); // Update the jobDetails state with the fetched data
+    } catch (error) {
+      console.error('Error fetching job details:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobDetails(); // Fetch job details when the component mounts
+  }, []);
+
 
   const filteredJobs = jobDetails.filter((job) => {
     // Apply filtering logic based on the selected filters
@@ -108,7 +126,6 @@ const JobList = () => {
     
   };
 
-  
 
   return (
     <div className="relative bg-white w-full min-h-screen overflow-hidden text-left text-xl text-gray-200 font-oxygen">
@@ -210,12 +227,16 @@ const JobList = () => {
                 <b className="relative">{job.type}</b>
               </div>
               <hr className="absolute top-[394px] left-[72px] w-full border-gray-300" />
+              <Link to='/job/description'>
               <button className="absolute bottom-8 left-8 right-[calc(50% + 140px)] md:top-[394px] md:left-[calc(50% + 140px)] text-xl text-deepskyblue bg-white">
                 View details
               </button>
-              <button className="absolute bottom-8 right-8 md:top-[394px] md:right-8 bg-deepskyblue h-14 flex flex-row py-4 px-[18px] box-border items-center justify-center text-xl text-white">
-                <b className="relative">Apply Now</b>
-              </button>
+              </Link>
+              
+                <button className="absolute bottom-8 right-8 md:top-[394px] md:right-8 bg-deepskyblue h-14 flex flex-row py-4 px-[18px] box-border items-center justify-center text-xl text-white">
+                  <b className="relative">Apply Now</b>
+                </button>
+              
               <img
                 className="absolute top-[60px] right-[4%] w-[84px] h-[84px] object-cover"
                 alt=""

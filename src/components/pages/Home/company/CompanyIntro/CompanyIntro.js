@@ -1,7 +1,27 @@
 import React from 'react';
 import './CompanyIntro.css'; // Import the CSS file for styling
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
+
+
+
 
 const Front = () => {
+  const history=useHistory();
+  const handleLogout = async () => {
+  
+    try {
+      const res = await axios.post("/auth/logout/",{})
+     
+      if(res.status===201){
+        console.log("Redirect",res);
+        history.replace('/');
+      }
+    }catch(e){
+      console.log(e.response.status);
+    }
+  };
+
   return (
     <div className="front-wrapper with-background-image">
       <div className="text-container">
@@ -12,6 +32,7 @@ const Front = () => {
       <div className="imagefront-container">
         <img src="./company1.png" alt="Image 1" className="overlay-image" />
       </div>
+      <button onClick={handleLogout}> logout</button>
     </div>
   );
 };

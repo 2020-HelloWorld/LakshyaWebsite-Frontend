@@ -8,6 +8,9 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { GoogleLogin } from '@react-oauth/google';
 import {Link} from 'react-router-dom';
+import { useEffect } from 'react';
+import { useHistory } from "react-router-dom";
+
 const LoginCommon = () => {
   const { type } = useParams();
   let imageSrc = '';
@@ -54,19 +57,9 @@ const LoginCommon = () => {
           },
         })
         .then((response)=>{
-          const cookies=response.headers["set-cookie"];
-          if(cookies)
-          {
-            cookies.forEach((cookie)=>{
-              document.cookie=cookie;
-            });
-          }
-
           if (response.status === 200) {
-              console.log(document.cookie);
-              console.log("successfull");
               console.log(response);
-              //setIsLogin(true);
+              setIsLogin(true);
           }
 
         })
@@ -75,10 +68,14 @@ const LoginCommon = () => {
         console.log('Login failed');
     }
   }
-  if(isLogin){
-    return <Redirect to="/"/>
-  }
-
+  const history=useHistory();
+  useEffect(()=>{
+    if(isLogin){
+      history.replace('/')
+    }
+  
+  },[isLogin]);
+ 
 
   const handleGoogleLogin = async (response) => {
     console.log("Google Login Successful. Sending credentials for verification!");
@@ -88,10 +85,12 @@ const LoginCommon = () => {
         "Content-Type":'application/json',
       },
     }).then((response)=>{
-      if(response.status==200){
+      if(response.status==201){
         console.log("Login Successful");
+        setIsLogin(true);
       }
     })
+    
   };
 
   const errorMessage = (error) => {
@@ -99,6 +98,7 @@ const LoginCommon = () => {
       console.log(error);
   };
         
+  
 
   return (
     <div className="flex flex-col md:flex-row h-screen">
@@ -109,10 +109,10 @@ const LoginCommon = () => {
           <GoogleLogin onSuccess={handleGoogleLogin} onError={errorMessage} />
           
           {/* Sign in with Facebook button */}
-          <button className="bg-blue-500 text-white hover:bg-cornflowerblue border border-gray-300 px-6  flex items-center justify-center rounded">
+          {/* <button className="bg-blue-500 text-white hover:bg-cornflowerblue border border-gray-300 px-6  flex items-center justify-center rounded">
             <img src={fb} alt="Facebook" className="w-9 h-9" />
             <span className="ml-2 font-oxygen">Sign in with Facebook</span>
-          </button>
+          </button> */}
         </div>
         <div className="flex items-center justify-between w-96 mb-2">
           <hr className="w-1/3 bg-gray-500"/>

@@ -6,7 +6,7 @@ function preferences() {
     <>
     
     <PreferenceIntro/>
-    <PreferenceNext/>
+    {/* <PreferenceNext/> */}
     
   </>
   )

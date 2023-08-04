@@ -1,14 +1,12 @@
 import React, { useState,useEffect } from "react";
 import EventSearch from "./EventSearch";
 import axios from "axios";
-import { Link } from 'react-router-dom';
-import cimage from "../../../../static/design/companylogin.png";
 import banner from "../../../../static/design/eventbanner.svg";
 import calendar from "../../../../static/logo/calendar.svg";
 import location from "../../../../static/logo/location.svg";
 import share from "../../../../static/logo/share.svg";
 import bookmark from "../../../../static/logo/bookmark.svg";
-
+import { Link } from 'react-router-dom';
 const EventList = () => {
   // const eventsData = [
   //   {
@@ -73,7 +71,7 @@ const EventList = () => {
         setEvents(response.data);
         setFilteredEvents(response.data); 
         console.log(response.data)
-      }); 
+      }) 
     } catch (error) {
       console.error("Error fetching events:", error);
     }
@@ -91,7 +89,15 @@ const EventList = () => {
 
   // Group events by categories
   const groupedEvents = groupEventsByCategory(filteredEvents);
-
+  
+  //sending eventID to backend
+  const sendEventIdToBackend = async (eventId) => {
+    try {
+      await axios.post("/event/detail/", { eventId });
+    } catch (error) {
+      console.error("Error sending event ID to the backend:", error);
+    }
+  };
   return (
     <div className="relative bg-white w-full min-h-screen overflow-hidden text-left text-xl text-gray-200 font-oxygen">
       <div className="bg-white py-4 text-center"></div>
@@ -120,7 +126,7 @@ const EventList = () => {
                       <div className="flex">
                         <img className="w-5 h-5 mr-2" src={bookmark} alt="Icon 1" />
                         <img className="w-5 h-5" src={share} alt="Icon 2" />
-                        
+
                       </div>
                     </div>
                     <div className="flex items-center text-gray-600 mb-4">
@@ -136,12 +142,12 @@ const EventList = () => {
                       )}
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center">
+                      {/* <div className="flex items-center">
                         <span className="text-deepskyblue font-bold">{event.price}</span>
                         <span className="text-gray-600 ml-1">Onwards</span>
-                      </div>
+                      </div> */}
                     <Link to={`/event/detail/${event.id}`}>
-                <button className="bg-blue-500 text-white px-5 py-3">Register</button>
+                <button className="bg-blue-500 text-white px-5 py-3" >View Details</button>
                     </Link>
                   </div>
                 </div>
