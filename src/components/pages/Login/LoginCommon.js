@@ -7,6 +7,7 @@ import mentor from '../../../static/design/mentorlogin.png';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { GoogleLogin } from '@react-oauth/google';
+import {Link} from 'react-router-dom';
 const LoginCommon = () => {
   const { type } = useParams();
   let imageSrc = '';
@@ -155,7 +156,7 @@ const LoginCommon = () => {
           Login as <span className="text-blue-500">{options}</span>
         </p>
         <p className="text-sm text-gray-600">
-          New to Lakshya? <span className="text-blue-500">Register</span>
+          New to Lakshya?<Link to={`/signup/${type}`}><span className="text-blue-500">Register</span></Link>
         </p>
       </div>
       <div className="hidden md:block w-full md:w-1/2 bg-gray-100 flex justify-center items-center rounded-b-full overflow-hidden rotate-90">
