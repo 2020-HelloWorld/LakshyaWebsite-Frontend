@@ -25,7 +25,7 @@ const Navbar = () => {
 
       {/* Header */}
       <div className="bg-gray-100 text-white">
-        <div className="container mx-auto px-4 py-3">
+        <div className="mx-auto px-4 py-3">
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Mobile Dropdown Button */}
             <div className="md:hidden">
