@@ -17,6 +17,7 @@ import {
     Events,
     EventDet,
     Course,
+    CourseDetailsPage,
     Mentor,
     aboutus,
     preferences,
@@ -52,6 +53,7 @@ function App() {
           <Route path='/event/detail/:eventId' component={EventDet}/>
 
           <Route path='/course/list' component={Course}/>
+          <Route path='/course/description/:courseId' component={CourseDetailsPage}/>
 
           <Route path='/mentor/find' component={Mentor}/>
 
