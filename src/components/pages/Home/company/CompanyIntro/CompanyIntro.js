@@ -1,41 +1,31 @@
 import React from 'react';
-import './CompanyIntro.css'; // Import the CSS file for styling
-import axios from 'axios';
-import { useHistory } from "react-router-dom";
-
-
-
+import introimg from '../../../../../static/design/Group.svg';
 
 const Front = () => {
-  const history=useHistory();
-  const handleLogout = async () => {
-  
-    try {
-      const res = await axios.post("/auth/logout/",{})
-     
-      if(res.status===201){
-        console.log("Redirect",res);
-        history.replace('/');
-      }
-    }catch(e){
-      console.log(e.response.status);
-    }
-  };
-
   return (
-    <div className="front-wrapper with-background-image">
-      <div className="text-container">
-        <h1>Cultivate Success: Discover Your<br></br> Perfect Workforce with Us</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <div ><button className="button-partner">Start Hiring</button></div>
+    <section className="bg-gray-100">
+      <div className="p-8 md:p-16 lg:p-24 flex flex-col md:flex-row items-center">
+        <div className="w-full md:w-1/2 mt-8 md:mt-0"> {/* Added mt-8 for top margin on medium screens */}
+          <div>
+            <h1 style={{ fontSize: '3rem' }} className="text-white text-4xl md:text-5xl lg:text-6xl font-oxygen leading-tight">
+              Companies
+            </h1>
+          </div>
+          <div className="mb-16">
+            <span className="text-white text-lg font-oxygen md:text-lg lg:text-lg leading-7">
+              Lorem ipsum dolor sit amet correctour.Lectus diam eleifend nulla est sit vulputate. Adispicing
+              curabitur felis elit rhoncus malesuda massa morbi nulla.
+            </span>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 flex justify-end">
+          <div className="hidden md:block pl-10">
+            <img src={introimg} alt="" className="max-w-full w-110 h-96 rounded-md" />
+          </div>
+        </div>
       </div>
-      <div className="imagefront-container">
-        <img src="./company1.png" alt="Image 1" className="overlay-image" />
-      </div>
-      <button onClick={handleLogout}> logout</button>
-    </div>
+    </section>
   );
 };
-
 
 export default Front;

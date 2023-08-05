@@ -20,6 +20,9 @@ import {
     CourseDetailsPage,
     Mentor,
     aboutus,
+    candidatedet,
+    mentordet,
+    companydet,
     preferences,
     Internship,
     internshipdet
@@ -58,6 +61,10 @@ function App() {
           <Route path='/mentor/find' component={Mentor}/>
 
           <Route path='/about' component={aboutus}/>
+
+          <Route path='/candidate/details' component={candidatedet}/>
+          <Route path='/mentor/details' component={mentordet}/>
+          <Route path='/company/details' component={companydet}/>
      
           <Route path='/internship/list' component={Internship}/>
           <Route path='/internship/internshipdet' component={internshipdet}/>

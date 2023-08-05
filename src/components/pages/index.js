@@ -27,3 +27,7 @@ export {default as internshipdet} from "./internship/InternshipDet/internshipdet
 
 
 export {default as aboutus} from "./aboutus/aboutus"
+
+export {default as candidatedet} from "./PersonalDetails/CandidateDetails/candidatedet"
+export {default as mentordet} from "./PersonalDetails/MentorDetails/mentordet"
+export {default as companydet} from './PersonalDetails/CompanyDetails/companydet'
