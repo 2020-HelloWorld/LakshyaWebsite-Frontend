@@ -44,13 +44,13 @@ function App() {
           <Route path="/signup/:type" component={SignUp} />
      
           <Route path='/job/list' component={jobList}/>
-          <Route path='/job/description' component={jobDescription}/>
-          <Route path='/post/job' component={jobPosting}/>
+          <Route path='/job/description/:jobId' component={jobDescription}/>
+          <Route path='/job/post' component={jobPosting}/>
           
           <Route path='/candidate/prefer' component={preferences}/>
 
          <Route path='/event/list' component={Events}/>
-        <Route path='/event/detail/:eventId' component={EventDet}/>
+         <Route path='/event/detail/:eventId' component={EventDet}/>
 
           <Route path='/course/list' component={Course}/>
           <Route path='/course/description/:courseId' component={CourseDetailsPage}/>

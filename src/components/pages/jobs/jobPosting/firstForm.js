@@ -21,16 +21,18 @@ const firstForm = ({ formData, onChange, onNextStep }) => {
       <div className="bg-white w-[60%] px-8 py-8 pl-6 rounded shadow-lg">
         <h2 className="text-2xl font-semibold mb-6">Post a Job</h2>
         <form onSubmit={handleSubmit}>
+          
           <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Company Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="border border-gray-300 rounded px-3 py-2 w-[95%]"
-              placeholder="Company Name"
-              value={formData.name}
-              onChange={handleChange}
+          <label htmlFor="jobTitle" className="block text-gray-700 font-medium mb-2">Job Title</label>
+          <input
+            type="text"
+            name="jobTitle"
+            id="title"
+            className="border border-gray-300 rounded px-3 py-2 w-[95%]"
+            placeholder="Job Title"
+            
+            value={formData.jobTitle}
+                onChange={handleChange}
             />
           </div>
           <div className="mb-4">
@@ -46,6 +48,30 @@ const firstForm = ({ formData, onChange, onNextStep }) => {
               />
           </div>
           <div className="mb-4">
+            <label htmlFor="applyBefore" className="block text-gray-700 font-medium mb-2">Apply Before</label>
+            <input
+              type="date"
+              id="applyBefore"
+              name="applyBefore"
+              className="border border-gray-300 rounded px-3 py-2 w-[95%]"
+              placeholder="applyBefore"
+              value={formData.applyBefore}
+                onChange={handleChange}
+              />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="type" className="block text-gray-700 font-medium mb-2">TYPE</label>
+            <input
+              type="text"
+              id="type"
+              name="type"
+              className="border border-gray-300 rounded px-3 py-2 w-[95%]"
+              placeholder="Full time or Part time"
+              value={formData.type}
+                onChange={handleChange}
+              />
+          </div>
+          {/* <div className="mb-4">
             <label htmlFor="Duration" className="block text-gray-700 font-medium mb-2">Duration</label>
             <input
                 type="text"
@@ -59,32 +85,48 @@ const firstForm = ({ formData, onChange, onNextStep }) => {
                 onChange={handleChange}
                 />
 
-          </div>
+          </div> */}
           <div className="mb-4">
-          <label htmlFor="Salary" className="block text-gray-700 font-medium mb-2">Salary</label>
+          <label htmlFor="Salary" className="block text-gray-700 font-medium mb-2">Salary(in LPA)</label>
           <input
             type="number"
             name="salary"
             id="salary"
             className="border border-gray-300 rounded px-3 py-2 w-[95%]"
             placeholder="Enter salary amount"
-            min="0"
-            step="1000"
+            min="1"
+            step="0.01"
             value={formData.salary}
                 onChange={handleChange}
             />
 
           </div>
           <div className="mb-4">
-          <label htmlFor="numberofhiring" className="block text-gray-700 font-medium mb-2">Number of Hirings</label>
+          <label htmlFor="MinExperience" className="block text-gray-700 font-medium mb-2">Minimum Experience Required(in yrs)</label>
           <input
             type="number"
-            name="numberOfHiring"
-            id="numberOfHiring"
+            name="MinExperience"
+            id="MinExperience"
             className="border border-gray-300 rounded px-3 py-2 w-[95%]"
-            placeholder="Enter number of hiring"
-            min="1"
-            value={formData.numberOfHiring}
+            placeholder="Minimum Experience"
+            min="0"
+            step="0.1"
+            value={formData.MinExperience}
+                onChange={handleChange}
+            />
+
+          </div>
+          
+          <div className="mb-4">
+          <label htmlFor="location" className="block text-gray-700 font-medium mb-2">Location</label>
+          <input
+            type="text"
+            name="location"
+            id="location"
+            className="border border-gray-300 rounded px-3 py-2 w-[95%]"
+            placeholder="Location"
+            
+            value={formData.location}
                 onChange={handleChange}
             />
           </div>
@@ -97,7 +139,7 @@ const firstForm = ({ formData, onChange, onNextStep }) => {
             id="numberOfOpenings"
             className="border border-gray-300 rounded px-3 py-2 w-[95%]"
             placeholder="Enter number of openings"
-            min="0"
+            min="1"
             value={formData.numberOfOpenings}
                 onChange={handleChange}
             />

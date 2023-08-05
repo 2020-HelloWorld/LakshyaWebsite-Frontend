@@ -2,14 +2,16 @@ import React from 'react'
 import { Navbar ,Footer} from '../../../layout';
 // import Main from "./internshipdet";
 import ApplyNowStates from './applynowstates';
-const jobDescription = () => {
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+const JobDescription = () => {
+  const { jobId } = useParams();
   return (
     <>
     <Navbar />
-     <ApplyNowStates/>
+     <ApplyNowStates jobId={jobId}/>
     <Footer />
     </>
   )
 }
 
-export default jobDescription
+export default JobDescription

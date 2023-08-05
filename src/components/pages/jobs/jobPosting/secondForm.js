@@ -1,6 +1,6 @@
 import React,{useRef,useState,useEffect} from 'react';
-
-
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
 import bold from '../../../../static/logo/bold.svg'
 import italic from '../../../../static/logo/italic.svg'
 import left from '../../../../static/logo/left.svg'
@@ -8,36 +8,38 @@ import right from '../../../../static/logo/right.svg'
 import center from '../../../../static/logo/center.svg'
 
 const SecondForm = ({formData, onChange, onPreviousStep}) => {
-    const textBoxRef = useRef(null);
-   
+  const history=useHistory();
+  const textBoxRef = useRef(null);
+    const handleTextChange = () => {
+      const newValue = textBoxRef.current.innerText;
+      onChange({['description']:newValue})
+    };
     
+    useEffect(()=>{
+      textBoxRef.current.innerText = formData.description;
+    })
 
     const handleGoBack = () => {
-        // Use history.goBack() to navigate back to the previous page
         onPreviousStep();
       };
 
-    const handleSubmit = () => {
-        // Do something with the form data when the submit button is clicked
-        console.log("Form submitted!");
+    const handleSubmit = async() => {
+      
+        const response =await axios.post('/job/add/',formData);
+        if(response.status===201)
+        {
+            history.replace('/home/company/');
+        }
+        else if(response.status===302)
+        {
+          history.replace('/login/company/');
+        }
       };
 
-    const [skills, setSkills] = useState([
-        { id: 1, content: "",isSelected:false},
-      ]);
+    const [skills, setSkills] = useState(formData.skills);
 
-      const [applicants, setApplicants] = useState([
-        { id: 1, content: "", isSelected: false },
-      ]);
-      const [perks, setPerks] = useState("");
+    const [applicants, setApplicants] = useState(formData.whocanApply);
 
-  
-  
-  const handlePerksChange = (event) => {
-    setPerks(event.target.value);
-  };
-
-  
 
   const handleBoldClick = () => {
     document.execCommand('bold', false, null);
@@ -60,20 +62,25 @@ const SecondForm = ({formData, onChange, onPreviousStep}) => {
   };
 
   const handleAddSkill = () => {
+    const date = Date.now();
     setSkills((prevSkills) => [
       ...prevSkills,
-      { id: Date.now(), content: "", isSelected: true }, // Set isSelected to true for the last added skill
+      { id: date, content: "", isSelected: true }, // Set isSelected to true for the last added skill
     ]);
+    onChange({ ['skills']: [
+      ...formData.skills,
+      { id: date, content: "", isSelected: true }, // Set isSelected to true for the last added skill
+    ]})
   };
 
   const handleSkillChange = (event, id) => {
     const updatedSkills = skills.map((skill) =>
-      skill.id === id ? { ...skill, content: event.target.textContent } : skill
+      skill.id === id ? { ...skill, content: event.target.textContent,isSelected: false} : skill
     );
     setSkills(updatedSkills);
-
-   
-  
+    onChange({ ['skills']: formData.skills.map((skill) =>
+    skill.id === id ? { ...skill, content: event.target.textContent,isSelected: false } : skill
+  ) });  
     // Set text direction to left-to-right
     const skillBox = document.getElementById(`smallBox-${id}`);
     if (skillBox) {
@@ -82,32 +89,40 @@ const SecondForm = ({formData, onChange, onPreviousStep}) => {
   };
   const handleRemoveSkill = (id) => {
     setSkills((prevSkills) => prevSkills.filter((skill) => skill.id !== id));
+    onChange({ ['skills']: formData.skills.filter((skill) => skill.id !== id)});
   };
 
   const handleAddApplicant = () => {
+    const date = Date.now();
     setApplicants((prevApplicants) => [
       ...prevApplicants,
-      { id: Date.now(), content: "", isSelected: true },
+      { id:date , content: "", isSelected: true },
     ]);
+    onChange({ ['whocanApply']: [
+      ...formData.whocanApply,
+      { id: date, content: "", isSelected: true },
+    ]})
   };
 
   const handleApplicantChange = (event, id) => {
     const updatedApplicants = applicants.map((applicant) =>
       applicant.id === id
-        ? { ...applicant, content: event.target.textContent }
+        ? { ...applicant, content: event.target.textContent,isSelected: false }
         : applicant
     );
     setApplicants(updatedApplicants);
+    onChange({ ['whocanApply']: formData.whocanApply.map((applicant) =>
+    applicant.id === id
+      ? { ...applicant, content: event.target.textContent,isSelected: false }
+      : applicant
+  ) });
   };
   const handleRemoveApplicant = (id) => {
     setApplicants((prevApplicants) =>
       prevApplicants.filter((applicant) => applicant.id !== id)
-    );
+      );
+    onChange({ ['whocanApply']: formData.whocanApply.filter((applicant) => applicant.id !== id)});
   };
- 
-
- 
-  
   
   useEffect(() => {
     skills.forEach((skill) => {
@@ -117,6 +132,11 @@ const SecondForm = ({formData, onChange, onPreviousStep}) => {
       }
     });
   }, [skills]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    onChange({ [name]: value });
+  };
 
   return (
     
@@ -136,8 +156,9 @@ const SecondForm = ({formData, onChange, onPreviousStep}) => {
         className="w-[80%] h-[80%] p-[10px] text-[16px] border-0 outline-none"
         contentEditable
         ref={textBoxRef}
-        
-        
+        onBlur={handleTextChange}
+        onChange={()=>{
+        }}
       >
         
         
@@ -245,8 +266,9 @@ const SecondForm = ({formData, onChange, onPreviousStep}) => {
       
       <textarea
         className="w-[90%] h-[200px] rounded-lg border border-solid border-darkgray p-4"
-        value={perks}
-        onChange={handlePerksChange}
+        value={formData.perks}
+        name = "perks"
+        onChange={handleChange}
       />
     </div>
 

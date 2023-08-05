@@ -79,7 +79,7 @@ const LoginCommon = () => {
 
   const handleGoogleLogin = async (response) => {
     console.log("Google Login Successful. Sending credentials for verification!");
-    await axios.post('/auth/google/',{credential:response.credential},{
+    await axios.post('/auth/google/',{credential:response.credential,group:type},{
       withCredentials:true,
       headers:{
         "Content-Type":'application/json',
