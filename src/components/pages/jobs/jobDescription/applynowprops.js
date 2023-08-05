@@ -20,9 +20,6 @@ const ApplyNowProps = ({
   perks,
   numberofopenings
 }) => {
-    //const skillsArray = skillsRequired.split(', ');
-    const whoCanApplyArray= whoCanApply.split(', ');
-    const perksArray=perks.split(', ');
     const history=useHistory();
     const handleApply=async()=>{
       try {
@@ -102,25 +99,12 @@ const ApplyNowProps = ({
           </div>
         ))}
       </div>
-
-      {/* <div className="text-lg md:text-xl font-oxygen font-semibold my-8">
-        Earn Certification in these skills:
-      </div>
-      <div className="flex flex-row flex-wrap gap-4 my-4">
-        {skillsRequired.map((skill, index) => (
-          <div key={index} className="text-deepskyblue h-9 flex flex-row p-2.5 items-center justify-center ">
-            <button className="relative rounded text-deepskyblue bg-white hover:bg-slate-100 text-lg md:text-xl px-2 py-2">{skill}</button>
-          </div>
-        ))}
-      </div> */}
-
-
       <div className="text-lg md:text-xl font-oxygen font-semibold my-8">
         Who Can Apply:
       </div>
       <div className="rounded bg-palegoldenrod p-2.5 md:w-[50%]">
       <div className="flex flex-col gap-2">
-  {whoCanApplyArray.map((apply, index) => (
+  {whoCanApply.map((apply, index) => (
     <div key={index} className="relative text-lg md:text-xl px-2 py-2">
       <span className="flex items-center">
         <span className="w-2 h-2 rounded-full bg-black mr-2"></span>
@@ -134,7 +118,7 @@ const ApplyNowProps = ({
 <div className="text-lg md:text-xl font-oxygen font-semibold mt-8 mb-4">Perks</div>
 <div className="rounded bg-palegoldenrod p-2.5 md:w-[50%]">
       <div className="flex flex-col gap-2">
-  {perksArray.map((per, index) => (
+  {perks.map((per, index) => (
     <div key={index} className="relative text-lg md:text-xl px-2 py-2">
       <span className="flex items-center">
         <span className="w-2 h-2 rounded-full bg-black mr-2"></span>

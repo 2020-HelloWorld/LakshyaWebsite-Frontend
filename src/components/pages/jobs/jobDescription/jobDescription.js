@@ -1,6 +1,5 @@
 import React from 'react'
 import { Navbar ,Footer} from '../../../layout';
-// import Main from "./internshipdet";
 import ApplyNowStates from './applynowstates';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 const JobDescription = () => {

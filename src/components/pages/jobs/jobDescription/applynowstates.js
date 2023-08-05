@@ -12,9 +12,9 @@ const ApplyNowStates = () => {
   const [aboutCompany, setAboutCompany] = useState('');
   const [aboutJob, setAboutJob] = useState('');
   const [skillsRequired, setSkillsRequired] = useState([]);
-  const [whoCanApply, setWhoCanApply] = useState('');
+  const [whoCanApply, setWhoCanApply] = useState([]);
   const [applyBefore,setApplyBefore] = useState('');
-  const [perks, setPerks]=useState('');
+  const [perks, setPerks]=useState([]);
   const [numberofopenings, setNumberofopenings]=useState(0);
   const [JobData, setJobData] = useState(null);
 
@@ -54,20 +54,15 @@ const ApplyNowStates = () => {
   }
   return (
     <div>
-      {/* Other content */}
       <ApplyNowProps
         companyName={companyName}
         startDate={startDate}
-        //duration={duration}
         ctc={ctc}
         aboutCompany={aboutCompany}
         aboutJob={aboutJob}
         skillsRequired={skillsRequired}
         whoCanApply={whoCanApply}
         applyBefore={applyBefore}
-        //numberofhiring={numberofhiring}
-        //hiringsince={hiringsince}
-        //numberofopportunities={numberofopportunities}
         perks={perks}
         numberofopenings={numberofopenings}
         jobId={jobId}
