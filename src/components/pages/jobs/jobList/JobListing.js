@@ -14,45 +14,45 @@ const JobList = () => {
   const [profile, setProfile] = useState('');
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
-  const [workFromHome, setWorkFromHome] = useState(false);
+  const [fullTime, setFullTime] = useState(false);
   const [partTime, setPartTime] = useState(false);
-  const [showOnly3LAPlusJobs, setShowOnly3LAPlusJobs] = useState(false);
-  const [yearsOfExperience, setYearsOfExperience] = useState('');
-  const [salary, setSalary] = useState('');
+  const [yearsOfExperience, setYearsOfExperience] = useState(null);
+  const [salary, setSalary] = useState(null);
+  const [filteredJobs, setFilteredJobs] = useState([]);
  
   
 
-  // const jobDetails = [
+  // const jobData = [
   //   {
   //     title: 'Senior Automation Tester',
   //     company: 'EPAM Anywhere',
   //     location: 'Bangalore',
-  //     duration: '06 Months',
-  //     salary: '8000 ₹ /Month',
-  //     experience: '3+ Years',
-  //     type: 'WORK FROM HOME',
-  //     image: search,
+  //     salary: 50,
+  //     MinExperience: 3,
+  //     type: 'FULL TIME',
+
+
   //   },
-  //   {
-  //     title: 'Data Scientist',
-  //     company: 'EPAM Anywhere',
-  //     location: 'Bangalore',
-  //     duration: '06 Months',
-  //     salary: '8000 ₹ /Month',
-  //     experience: '3+ Years',
-  //     type: 'Part Time',
-  //     image: search,
-  //   },
-  //   {
-  //     title: 'Data Scientist',
-  //     company: 'EPAM Anywhere',
-  //     location: 'Delhi',
-  //     duration: '06 Months',
-  //     salary: '8000 ₹ /Month',
-  //     experience: '3+ Years',
-  //     type: 'WORK FROM HOME',
-  //     image: search,
-  //   },
+  //   // {
+  //   //   title: 'Data Scientist',
+  //   //   company: 'EPAM Anywhere',
+  //   //   location: 'Bangalore',
+  //   //   duration: '06 Months',
+  //   //   salary: '8000 ₹ /Month',
+  //   //   experience: '3+ Years',
+  //   //   type: 'Part Time',
+
+  //   // },
+  //   // {
+  //   //   title: 'Data Scientist',
+  //   //   company: 'EPAM Anywhere',
+  //   //   location: 'Delhi',
+  //   //   duration: '06 Months',
+  //   //   salary: '8000 ₹ /Month',
+  //   //   experience: '3+ Years',
+  //   //   type: 'WORK FROM HOME',
+
+  //   // },
   //   // Add more job details objects as needed
   // ];
 
@@ -77,7 +77,7 @@ const JobList = () => {
       alt: 'Location Logo',
       src: location1,
     },
-    // Add more logo objects as needed
+
   ];
 
   const [jobDetails, setJobDetails] = useState([]);
@@ -85,45 +85,51 @@ const JobList = () => {
   // Function to fetch job details from the backend API
   const fetchJobDetails = async () => {
     try {
-      // Replace 'YOUR_BACKEND_API_ENDPOINT' with the actual URL of your backend API
       const response = await axios.post('/job/list/',{});
-      setJobDetails(response.data); // Update the jobDetails state with the fetched data
+      if(response.status==201){
+        setJobDetails(response.data['jobs']); 
+        }
     } catch (error) {
       console.error('Error fetching job details:', error);
     }
   };
 
   useEffect(() => {
-    fetchJobDetails(); // Fetch job details when the component mounts
+    fetchJobDetails(); 
   }, []);
 
+ 
 
-  const filteredJobs = jobDetails.filter((job) => {
-    // Apply filtering logic based on the selected filters
-    return (
-      job.title.toLowerCase().includes(profile.toLowerCase()) &&
-      job.company.toLowerCase().includes(name.toLowerCase()) &&
-      job.location.toLowerCase().includes(location.toLowerCase()) &&
-      (workFromHome ? job.type.toLowerCase().includes('work from home') : true) &&
-      (partTime ? job.type.toLowerCase().includes('part time') : true) &&
-      (showOnly3LAPlusJobs ? job.salary.toLowerCase().includes('3 la+') : true) &&
-      (yearsOfExperience
-        ? job.experience.toLowerCase().includes(yearsOfExperience.toLowerCase())
-        : true) &&
-      (salary ? job.salary.toLowerCase().includes(salary.toLowerCase()) : true)
-    );
-  });
+  useEffect(()=>{
+    const filterJobs = jobDetails.filter((job) => {
+      // Convert salary, experience, and duration to integers
+      const jobSalary = parseInt(job.salary);
+      const jobExperience = parseInt(job.MinExperience);
+      // const jobDuration = parseInt(job.duration);
+    
+      // Apply filtering logic based on the selected filters
+      return (
+        job.title.toLowerCase().includes(profile.toLowerCase()) &&
+        job.company.toLowerCase().includes(name.toLowerCase()) &&
+        job.location.toLowerCase().includes(location.toLowerCase()) &&
+        (fullTime ? job.type.toLowerCase().includes('full time') : true) &&
+        (partTime ? job.type.toLowerCase().includes('part time') : true) &&
+        (yearsOfExperience ? jobExperience <= parseInt(yearsOfExperience) : true) &&
+        (salary ? jobSalary >= parseInt(salary) : true)
+      );
+    });
+    setFilteredJobs(filterJobs);
+  },[jobDetails,profile,name,location,fullTime,partTime,yearsOfExperience,salary]);
+
 
   const handleClearAll = () => {
     setProfile('');
     setName('');
     setLocation('');
-    setWorkFromHome(false);
+    setFullTime(false);
     setPartTime(false);
-    setShowOnly3LAPlusJobs(false);
-    setYearsOfExperience('');
-    setSalary('');
-    
+    setYearsOfExperience(null);
+    setSalary(null);
   };
 
 
@@ -142,22 +148,21 @@ const JobList = () => {
       <JobFilter
         profile={profile}
         name={name}
-        workFromHome={workFromHome}
+        fullTime={fullTime}
         partTime={partTime}
         location={location}
-        showOnly3LAPlusJobs={showOnly3LAPlusJobs}
         yearsOfExperience={yearsOfExperience}
         salary={salary}
         setProfile={setProfile}
         setName={setName}
         setLocation={setLocation}
-        setWorkFromHome={setWorkFromHome}
+        setFullTime={setFullTime}
         setPartTime={setPartTime}
-        setShowOnly3LAPlusJobs={setShowOnly3LAPlusJobs}
         setYearsOfExperience={setYearsOfExperience}
         setSalary={setSalary}
         handleClearAll={handleClearAll}
       />
+
       <div className="w-full md:w-3/4">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job, index) => (
@@ -194,13 +199,13 @@ const JobList = () => {
                   />
                   <b className="relative">{job.location}</b>
                 </div>
-                <div className="flex flex-row items-center gap-[8px]">
+                <div className="flex flex-row items-center gap-[8px] md:mt-0 mt-4">
                   <img
                     className="relative w-6 h-6 overflow-hidden shrink-0"
-                    alt={logos[3].alt}
-                    src={logos[3].src}
+                    alt={logos[2].alt}
+                    src={logos[2].src}
                   />
-                  <b className="relative">{job.duration}</b>
+                  <b className="relative">{job.salary}LPA</b>
                 </div>
                 <div className="flex flex-row items-center gap-[8px] md:mt-0 mt-4">
                   <img
@@ -208,15 +213,15 @@ const JobList = () => {
                     alt={logos[2].alt}
                     src={logos[2].src}
                   />
-                  <b className="relative">{job.salary}</b>
+                  <b className="relative">{job.MinExperience}years</b>
                 </div>
               </div>
-              <div className="absolute top-[350px] left-[72px] rounded-sm bg-gainsboro w-[77px] overflow-hidden flex flex-row py-1.5 px-5 box-border items-center justify-between">
+              {/* <div className="absolute top-[350px] left-[72px] rounded-sm bg-gainsboro w-[77px] overflow-hidden flex flex-row py-1.5 px-5 box-border items-center justify-between">
                 <div className="relative">job</div>
                 
-              </div>
+              </div> */}
               <div className="absolute top-[350px] left-[180px] rounded-sm bg-gainsboro w-[77px] overflow-hidden flex flex-row py-1.5 px-5 box-border items-center justify-between">
-              <div className="relative">{job.experience}</div>
+              <div className="relative">{job.MinExperience} years</div>
                 </div>
               <div className="absolute top-[181px] left-[72px] rounded flex flex-row p-[5px] items-center justify-start gap-[12px] text-dimgray-200 border-[1px] border-solid border-darkgray">
                 <img
@@ -227,16 +232,12 @@ const JobList = () => {
                 <b className="relative">{job.type}</b>
               </div>
               <hr className="absolute top-[394px] left-[72px] w-full border-gray-300" />
-              <Link to='/job/description'>
-              <button className="absolute bottom-8 left-8 right-[calc(50% + 140px)] md:top-[394px] md:left-[calc(50% + 140px)] text-xl text-deepskyblue bg-white">
-                View details
-              </button>
-              </Link>
-              
-                <button className="absolute bottom-8 right-8 md:top-[394px] md:right-8 bg-deepskyblue h-14 flex flex-row py-4 px-[18px] box-border items-center justify-center text-xl text-white">
-                  <b className="relative">Apply Now</b>
+              <Link to={`/job/description/${job.id}`}>
+              <button className="absolute bottom-8 right-8 md:top-[394px] md:right-8 bg-deepskyblue h-14 flex flex-row py-4 px-[18px] box-border items-center justify-center text-xl text-white">
+                  <b className="relative">View Details</b>
                 </button>
-              
+              </Link>
+
               <img
                 className="absolute top-[60px] right-[4%] w-[84px] h-[84px] object-cover"
                 alt=""

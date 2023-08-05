@@ -5,17 +5,15 @@ const JobFilter = ({
   profile,
   name,
   location,
-  workFromHome,
+  fullTime,
   partTime,
-  showOnly3LAPlusJobs,
   yearsOfExperience,
   salary,
   setProfile,
   setName,
-  setWorkFromHome,
+  setFullTime,
   setPartTime,
   setLocation,
-  setShowOnly3LAPlusJobs,
   setYearsOfExperience,
   setSalary,
   handleClearAll,
@@ -37,7 +35,7 @@ const JobFilter = ({
         <input
           type="text"
           className="border border-gray-300 rounded px-2 py-2 w-5/6 font-oxygen"
-          placeholder="e.g. Engineer"
+          
           value={profile}
           onChange={(e) => setProfile(e.target.value)}
         />
@@ -57,10 +55,10 @@ const JobFilter = ({
           <input
             type="checkbox"
             className="mr-2 h-5 w-5"
-            checked={workFromHome}
-            onChange={(e) => setWorkFromHome(e.target.checked)}
+            checked={fullTime}
+            onChange={(e) => setFullTime(e.target.checked)}
           />
-          Work from Home
+          FULL TIME
         </label>
         <label className="flex items-center">
           <input
@@ -69,16 +67,7 @@ const JobFilter = ({
             checked={partTime}
             onChange={(e) => setPartTime(e.target.checked)}
           />
-          Part-time
-        </label>
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            className="mr-2 h-5 w-5"
-            checked={showOnly3LAPlusJobs}
-            onChange={(e) => setShowOnly3LAPlusJobs(e.target.checked)}
-          />
-          Show only 3 LAP+jobs
+          PART TIME
         </label>
       </div>
       <div className="mb-4">

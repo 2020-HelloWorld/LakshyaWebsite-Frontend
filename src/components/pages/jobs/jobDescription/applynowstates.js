@@ -1,41 +1,76 @@
 import React, { useState } from 'react';
 import ApplyNowProps from './applynowprops';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ApplyNowStates = () => {
-  const [companyName, setCompanyName] = useState('Siemens');
-  const [startDate, setStartDate] = useState('01-08-2023');
-  const [duration, setDuration] = useState('6 months');
-  const [ctc, setCtc] = useState('Rs 5000/month');
-  const [aboutCompany, setAboutCompany] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-  const [aboutJob, setAboutJob] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-  const [skillsRequired, setSkillsRequired] = useState('React, JavaScript, HTML, CSS, MongoDB');//make sure to give space between the skills, else it will end up in the same box.
-  const [whoCanApply, setWhoCanApply] = useState('Students pursuing a degree in Computer Science, Graduates');
-  const [postedTime, setPostedTime] = useState('Posted Few Hours Ago');
-  const [numberofhiring,setNumberofhiring] = useState('18');
-  const [hiringsince,setHiringsince] = useState('2010');
-  const [numberofopportunities,setNumberofopportunities] = useState('120');
-  const [perks, setPerks]=useState('Holiday on Weekends, Sick leave');
-  const [numberofopenings, setNumberofopenings]=useState('20');
+  const { jobId } = useParams();
+  const [companyName, setCompanyName] = useState('');
+  const [startDate, setStartDate] = useState();
+  const [ctc, setCtc] = useState(0);
+  const [aboutCompany, setAboutCompany] = useState('');
+  const [aboutJob, setAboutJob] = useState('');
+  const [skillsRequired, setSkillsRequired] = useState([]);
+  const [whoCanApply, setWhoCanApply] = useState('');
+  const [applyBefore,setApplyBefore] = useState('');
+  const [perks, setPerks]=useState('');
+  const [numberofopenings, setNumberofopenings]=useState(0);
+  const [JobData, setJobData] = useState(null);
 
+  useEffect(() => {
+    const fetchEventData = async () => {
+      try {
+        const response = await axios.post("/job/details/",{jobId:jobId}) 
+        .then((response)=>{
+          console.log(response.data);
+          setJobData(response.data);
+        })
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
 
+    fetchEventData();
+  }, []);
+
+  useEffect(()=>{
+    if(JobData!==null){
+      setCompanyName(JobData.company);
+      setAboutJob(JobData.description);
+      setAboutCompany(JobData.aboutCompany);
+      setCtc(JobData.salary);
+      setStartDate(JobData.startDate);
+      setWhoCanApply(JobData.whoCanApply);
+      setApplyBefore(JobData.applyBefore);
+      setPerks(JobData.perks);
+      setNumberofopenings(JobData.openings);
+      setSkillsRequired(JobData.skills);
+    }
+  },[JobData])
+
+  if (!JobData) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       {/* Other content */}
       <ApplyNowProps
         companyName={companyName}
         startDate={startDate}
-        duration={duration}
+        //duration={duration}
         ctc={ctc}
         aboutCompany={aboutCompany}
         aboutJob={aboutJob}
         skillsRequired={skillsRequired}
         whoCanApply={whoCanApply}
-        postedTime={postedTime}
-        numberofhiring={numberofhiring}
-        hiringsince={hiringsince}
-        numberofopportunities={numberofopportunities}
+        applyBefore={applyBefore}
+        //numberofhiring={numberofhiring}
+        //hiringsince={hiringsince}
+        //numberofopportunities={numberofopportunities}
         perks={perks}
         numberofopenings={numberofopenings}
+        jobId={jobId}
       />
     </div>
   );

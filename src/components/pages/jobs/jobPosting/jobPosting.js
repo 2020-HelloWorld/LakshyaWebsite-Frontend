@@ -8,13 +8,22 @@ import SecondForm from "./secondForm";
 const JobPosting = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    name: "",
-    startdate: "",
-    duration: "",
+    jobTitle:'',
+    startdate: null,
     salary: 0,
-    numberOfHiring: 1,
-   
     numberOfOpenings: 0,
+    location:null,
+    applyBefore:null,
+    MinExperience:0,
+    description:'',
+    skills:[
+      { id: 1, content: "", isSelected: false },
+    ],
+    whocanApply:[
+      { id: 1, content: "", isSelected: false },
+    ],
+    perks:'',
+    type:'',
   });
 
   const handleNextStep = () => {
