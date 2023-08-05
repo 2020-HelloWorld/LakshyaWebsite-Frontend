@@ -1,17 +1,21 @@
 import React from 'react'
-import MentorIntro from './MentorIntro/MentorIntro';
-import Testimonial from './testimonials/Testimonial';
-import MentorNavBar from './MentorNav/MentorNavBar';
+import MentorIntro from './mentorintroscreen';
+import StartHere from './starthere';
+import Onboard from './onboardCarousel/onboardCarousel';
+
+
 import { Footer} from '../../../layout';
+import NavBar from '../../../layout/Navbar/studentNavBar'
 
 function MentorHome() {
   return (
-    <>
-    <MentorNavBar/>
+    <>    
+    <NavBar/>
     <MentorIntro />
-    <Testimonial />
+    <StartHere/>
+    <Onboard/>    
     <Footer/>
-  </>
+    </>
   )
 }
 
