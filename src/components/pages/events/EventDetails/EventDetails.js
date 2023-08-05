@@ -4,60 +4,55 @@ import share from '../../../../static/logo/share.svg';
 import cimage from "../../../../static/design/companylogin.png";
 import bookmark from '../../../../static/logo/bookmark.svg';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 const EventDetails = () => {
-  // const eventDetails = {
-  //   event: {
-  //     title: "Event Name",
-  //     details: {
-  //       date: "Date of event",
-  //       location: "Area",
-  //       price: "Registration fees",
-  //       category:"category",
-  //       image: './image', 
-  //     }
-  //   },
-  //   eventInfo: {
-  //     title: "Event Information",
-  //     details: {
-  //       date: "Some date text",
-  //       fees: "Some entry fees text",
-  //       eventType: "Some event type text",
-  //       officialLinks: "Some official links text",
-  //       editions: "Some editions text",
-  //       venue: "Some venue text",
-  //     },
+  const { eventId } = useParams();
+  const EventDetails = {
+    event: {
+      title: "Event Name",
+      details: {
+        date: "Date of event",
+        location: "Area",
+        time: "9:00pm",
+        category:"Online",
+        image: './image', 
+      }
+    },
+    eventInfo: {
+      title: "Event Information",
+      details: {
+        date: "Some date text",
+        Time:"Time",
+        eventType: "Some event type text",
+        officialLinks: "Some official links text",
+        venue: "Some venue text",                        
+      },
       
-  //   },
-  //   speakerDetails: {
-  //     title: "Speaker Details",
-  //     details: {
-  //       speaker: "Some speaker details text",
-  //       image: './speakerImage',
-  //     },
+    },
+    speakerDetails: {
+      name: "Speaker Details",
+      details: {
+        description: "Some speaker details text",
+        image: './speakerImage',
+      },
      
-  //   },
-  //   locationDetails: {
-  //     title: "Location Details",
-  //     details: {
-  //       location: "Some location details text",
-  //       image: './locationImage',
-  //     },
-     
-  //   },
-  //   organizerDetails: {
-  //     title: "Organizer Details",
-  //     details: {
-  //       organizer: "Some organizer details text",
-  //     },
-  //   },
-  // };
-  const [eventData, setEventData] = useState(null);
+    },
+    organizerDetails: {
+      name: "Organizer Details",
+      details: {
+        description: "Some organizer details text",
+        image:'./companyimage'
+      },
+    },
+  };
+
+  const [eventData, setEventData] = useState(EventDetails);
 
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const response = await axios.post("/event/detail/",{}) 
+        const response = await axios.post("/event/details/",{eventId:eventId}) 
         .then((response)=>{
           setEventData(response.data);
         })
@@ -112,8 +107,8 @@ const EventDetails = () => {
             </div>
           </div>
           <p className="px-3 py-2 text-deepskyblue">
-            <span>{event.details.price}</span>
-            <span className="text-gray-200"> Onwards</span>
+            <span>{event.details.time}</span>
+            {/* <span className="text-gray-200"> Onwards</span> */}
           </p>
           <div className="flex items-center justify-end p-3">
           <span className="mx-2 bg-gray-300 text-gray-700 px-2 rounded-md text-sm">
@@ -134,10 +129,10 @@ const EventDetails = () => {
               </div>
            
 
-            <h1 className="text-2xl font-bold p-3">{speakerDetails.title}</h1>
+            <h1 className="text-2xl font-bold p-3">{speakerDetails.name}</h1>
             <div className="p-3">
-            <h2 className="text-lg font-bold">Speaker</h2>
-            <p className="text-base">{speakerDetails.details.speaker}</p>
+            <h2 className="text-lg font-bold">Speaker Details</h2>
+            <p className="text-base">{speakerDetails.details.description}</p>
           </div>
           </div>
 
@@ -159,24 +154,12 @@ const EventDetails = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="relative rounded-lg border-[1px] border-solid border-darkgray mb-5">
-            
-              <div className="bg-gainsboro h-[225px] rounded-lg">
-                <img src={locationDetails.details.image} alt="Location" className="w-full h-full object-cover" />
-              </div>
-            
-
-            <h1 className="text-2xl font-bold p-3">{locationDetails.title}</h1>
-            <div className="p-3">
-            <h2 className="text-lg font-bold">Location</h2>
-            <p className="text-base">{locationDetails.details.location}</p>
-          </div>
-          </div>
+         
 
           <div className="relative rounded-lg border-[1px] border-solid border-darkgray mb-5">
             
 
-            <h1 className="text-2xl font-bold p-3">{organizerDetails.title}</h1>
+            <h1 className="text-2xl font-bold p-3">{organizerDetails.name}</h1>
             <div className="p-3">
               {Object.entries(organizerDetails.details).map(([key, value]) => (
                 <div key={key}>
