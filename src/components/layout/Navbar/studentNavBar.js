@@ -18,9 +18,9 @@ const Navbar = () => {
         Lakshya
       </b>
       <div className="absolute top-0 right-0 flex gap-4 mt-4 mr-4">
-        <img className="w-6 h-6" alt="topimg1" src={topimg1} />
-        <img className="w-6 h-6" alt="topimg2" src={topimg2} />
-        <img className="w-6 h-6" alt="topimg3" src={topimg3} />
+       <button className='bg-white'><img className="w-6 h-6" alt="topimg1" src={topimg1} /></button>
+       <button className='bg-white'><img className="w-6 h-6" alt="topimg2" src={topimg2} /></button>
+       <button className='bg-white'><img className="w-6 h-6" alt="topimg3" src={topimg3} /></button>
       </div>
 
       {/* Header */}
