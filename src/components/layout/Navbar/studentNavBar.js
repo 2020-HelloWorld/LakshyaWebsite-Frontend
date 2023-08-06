@@ -65,9 +65,11 @@ const Navbar = () => {
               </button>
               </Link>
              
+              <Link to='/abroadeducation/home'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
                 Abroad Education
               </button>
+              </Link>
               
               <Link to='/mentor/find'>
               <button className="hover:bg-black bg-gray-100 py-2 px-4 text-white font-semibold">
