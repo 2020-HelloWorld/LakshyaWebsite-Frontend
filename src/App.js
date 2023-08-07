@@ -25,7 +25,9 @@ import {
     companydet,
     preferences,
     Internship,
-    internshipdet
+    internshipdet,
+    AbroadEducationHome,
+    AbroadEducationDetailspage
   } from './components/pages';
 
 
@@ -68,6 +70,9 @@ function App() {
      
           <Route path='/internship/list' component={Internship}/>
           <Route path='/internship/internshipdet' component={internshipdet}/>
+
+          <Route path='/abroadeducation/home' component={AbroadEducationHome}/>
+          <Route path='/abroadeducation/viewdetails' component={AbroadEducationDetailspage}/>
         </Switch>
 
         <ReloadOnBackButton />
