@@ -34,3 +34,5 @@ export {default as companydet} from './PersonalDetails/CompanyDetails/companydet
 
 export {default as AbroadEducationHome} from "./AbroadEducation/homepage/AbroadEducationHome"
 export {default as AbroadEducationDetailspage} from "./AbroadEducation/AbroadEdViewDetails/AEViewDetails"
+
+export {default as CompanyApplications} from "./Applications/CompanyApplications/CompanyApplications"
